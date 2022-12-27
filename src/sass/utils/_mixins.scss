@@ -1,0 +1,7 @@
+//Міксін вираховує коефіцієнт для line-height і
+//підставляє його в проєкт та font-size
+
+@mixin font($fs: 24, $lh: 32) {
+  font-size: #{$fs}px;
+  line-height: $lh / $fs;
+}

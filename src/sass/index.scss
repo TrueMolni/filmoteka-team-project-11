@@ -1,2 +1,13 @@
-@import './common';
-@import './example';
+// base
+@import './base/base';
+@import './base/common';
+
+// components
+
+//layout
+
+//modules
+
+// utils
+@import './utils/mixins';
+@import './utils/visually-hidden';

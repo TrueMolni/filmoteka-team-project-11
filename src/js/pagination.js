@@ -1,10 +1,12 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import ApiServise from '../js/api'
+import { createMarkup } from './markupListMovies';
 
 const apiServise = new ApiServise;
 const container = document.getElementById('tui-pagination-container');
-const containerFilms=document.querySelector(".container-films")
+const containerFilms = document.querySelector(".container");
+const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 // const page = pagination.getCurrentPage();
 // const arrowIcon = `${sprite}#icon-arrow`;
 
@@ -16,7 +18,7 @@ const options = {
   itemsPerPage: 20,
   totalItems: 20000,
   visiblePages: 5,
-  // centerAlign: true,
+  centerAlign: true,
   usageStatistics: false,
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
@@ -39,36 +41,18 @@ const options = {
 
 const pagination = new Pagination(container, options);
 
-async function Home() {
-  const response = await apiServise.getTrendingFilm();
-  addFilms(response.results);
-  console.log(response)
-}
-Home()
-
-
-
 pagination.on('afterMove', loadMoreFilms)
 
 async function loadMoreFilms(event) {
   cleanContainer();
 
   if (event.page) {
-    apiServise.page = event.page;
+  apiServise.page = event.page;
  } 
   console.log(event.page);
   const response = await apiServise.getTrendingFilm();
-  addFilms(response.results);
-}
-
-
-function addFilms(films) {
-const markup = films.map(film => {
-  return `<div>
-<p>${film.title}</p>
- </div>`}).join('');
-containerFilms.insertAdjacentHTML('beforeend', markup);
-
+  createMarkup(response);
+  containerFilms.insertAdjacentHTML('beforeend', createMarkup(response))
 }
 
 function cleanContainer(){

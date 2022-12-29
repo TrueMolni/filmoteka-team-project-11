@@ -1,10 +1,11 @@
 import { getTrending } from './getTrending.js';
-import { refs } from '../index.js';
+
 const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 let currentPage = 1;
+const moviesList = document.querySelector('.film__list')
 
 getTrending(currentPage).then(res => {
-  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
+  moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
 });
 
 function createMarkup(res) {
@@ -20,7 +21,7 @@ function createMarkup(res) {
           release_date,
           vote_average,
         }) => {
-          return `<li class="gallery__item">
+          return `<li class="gallery__item data-modal-open">
             <img src="${srcImgBase}${poster_path}" alt="${id}-${original_title}" class="img" data-modal-open/>
             <div class="item__text">
               <h2 class="item__capt">${title}</h2>

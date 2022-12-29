@@ -4,9 +4,16 @@ import ApiServise from '../js/api'
 import { createMarkup } from './markupListMovies';
 
 const apiServise = new ApiServise;
+
 const container = document.getElementById('tui-pagination-container');
 const containerFilms = document.querySelector(".container");
-const srcImgBase = 'https://image.tmdb.org/t/p/w500';
+const total = 20000;
+function totalResults(response) {
+console.log(response.total_results) 
+}
+  // totalResults()
+  // 20000;
+
 // const page = pagination.getCurrentPage();
 // const arrowIcon = `${sprite}#icon-arrow`;
 
@@ -16,7 +23,7 @@ const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 const options = {
   page: 1,
   itemsPerPage: 20,
-  totalItems: 20000,
+  totalItems: total,
   visiblePages: 5,
   centerAlign: true,
   usageStatistics: false,

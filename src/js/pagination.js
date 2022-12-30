@@ -7,14 +7,6 @@ const apiServise = new ApiServise;
 const container = document.getElementById('tui-pagination-container');
 const containerFilms = document.querySelector(".container");
 const total = 20000;
-// function totalResults(response) {
-//   console.log(response.total_results)
-// }
-// totalResults()
-
-
-// const page = pagination.getCurrentPage();
-// const arrowIcon = `${sprite}#icon-arrow`;
 
 
 const options = {

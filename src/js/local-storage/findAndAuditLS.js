@@ -1,4 +1,4 @@
-import {getById} from './js/getById';
+import {getById} from '../getById';
 import {parseOneFilm} from './parseApiToLS';
 
 

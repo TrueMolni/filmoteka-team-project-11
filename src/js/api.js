@@ -8,12 +8,13 @@ export const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?api_key=${A
 export default class ApiServise {
   constructor() {
     this.userSearch = '';
-    this.id = 0;
+    this.id = 361743;
     this.page = 1;
   }
   async getTrendingFilm() {
     try {
       const response = await axios.get(`${API_URL}&page=${this.page}`);
+      console.log(response.data);
       return response.data;
     } catch (error) {
     //   console.log(error);
@@ -36,6 +37,7 @@ export default class ApiServise {
       const response = await axios.get(
         `${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`
       );
+      console.log(response.data)
       return response.data;
     } catch (error) {
     //   console.log(error);
@@ -88,4 +90,6 @@ export default class ApiServise {
 }
 
 const userFilms = new ApiServise();
+
+userFilms.getTrendingFilm()
 export { userFilms };

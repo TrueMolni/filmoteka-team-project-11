@@ -1,3 +1,5 @@
+import './js/api';
+import './js/pagination';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/movie';

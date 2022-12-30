@@ -23,7 +23,6 @@ function createMarkup(res) {
         }) => {
           if (poster_path === null||srcImgBase===null) {
           return `<li class="gallery__item data-modal-open">
-            <img src="not found" alt="${id}-${original_title}" class="img" data-modal-open/>
             <div class="item__text">
               <h2 class="item__capt">${title}</h2>
               <div class="item__wrap">

@@ -32,9 +32,10 @@ function createMarkup(res) {
             </div>
           </li>`;
         }
-)
+        )
       .join('');
     return markup;
   }
+
 }
 export{createMarkup}

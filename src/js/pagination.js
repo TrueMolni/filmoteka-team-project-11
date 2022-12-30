@@ -4,20 +4,17 @@ import ApiServise from '../js/api'
 import { createMarkup } from './markupListMovies';
 
 const apiServise = new ApiServise;
-
 const container = document.getElementById('tui-pagination-container');
 const containerFilms = document.querySelector(".container");
 const total = 20000;
-function totalResults(response) {
-console.log(response.total_results) 
-}
-  // totalResults()
-  // 20000;
+// function totalResults(response) {
+//   console.log(response.total_results)
+// }
+// totalResults()
+
 
 // const page = pagination.getCurrentPage();
 // const arrowIcon = `${sprite}#icon-arrow`;
-
-
 
 
 const options = {
@@ -43,26 +40,24 @@ const options = {
       '<span class="tui-ico-ellip">...</span>' +
       '</a>'
   }
-}
-
+};
 
 const pagination = new Pagination(container, options);
 
-pagination.on('afterMove', loadMoreFilms)
+pagination.on('afterMove', loadMoreFilms);
 
 async function loadMoreFilms(event) {
   cleanContainer();
 
-  if (event.page) {
-  apiServise.page = event.page;
- } 
+  apiServise.page = event.page; 
   console.log(event.page);
+ 
   const response = await apiServise.getTrendingFilm();
   createMarkup(response);
   containerFilms.insertAdjacentHTML('beforeend', createMarkup(response))
-}
+};
 
 function cleanContainer(){
   containerFilms.innerHTML = '';
-}
+};
 

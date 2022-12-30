@@ -3,7 +3,11 @@
 @import './base/common';
 @import './base/container';
 @import './base/container_my-library';
+
 // components
+@import './components/header_common';
+@import './components/header-main';
+@import './components/header-library';
 
 //layout
 

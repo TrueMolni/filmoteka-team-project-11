@@ -1,0 +1,87 @@
+// infinite color bg
+
+.infinite-color-bg {
+  background-color: #000;
+}
+
+// logo
+.logo {
+  position: absolute;
+  top: 46px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: baseline;
+  }
+
+  text-decoration: none;
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+.logo__icon {
+  @media screen and (min-width: 768px) {
+    margin-right: 10px;
+  }
+}
+
+.logo__name {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.16;
+
+  color: #fff;
+}
+
+// side-nav
+
+.side-nav {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-bottom: 40px;
+
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  text-transform: uppercase;
+
+  color: #fff;
+}
+
+.side-nav__item {
+  &:first-child {
+    margin-right: 39px;
+  }
+}
+
+.side-nav__link {
+  text-decoration: none;
+
+  color: inherit;
+}
+
+.side-nav__link--current-page {
+  position: relative;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    height: 3px;
+    width: 100%;
+
+    background-color: #ff6b08;
+  }
+}

@@ -1,44 +1,64 @@
 const modalWindow = document.querySelector('.modal');
 export function renderMovieModal({
   genres,
-  original_title,
+  original_title = 'Unknown',
   overview,
   popularity,
   poster_path,
-  title,
-  vote_average,
-  vote_count,
+  title = 'Unknown',
+  vote_average = 0,
+  vote_count = 0,
+  id,
 }) {
-  const markup = `<div class="information">
-  <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="Movie poster"/>
+  let genresList = '';
+  if (genres.length) {
+    genresList = genres.map(genre => genre.name);
+  } else {
+    genresList = 'No information';
+  }
+
+  let imgPath = '';
+  if (poster_path) {
+    imgPath = 'https://image.tmdb.org/t/p/w500${poster_path}';
+  } else {
+    imgPath = defaultPicture; // потрібно якусь дефолтну картинку в images або якійсь напис придумати
+  }
+
+  let descr = '';
+  if (overview) {
+    descr = overview;
+  } else {
+    descr = 'No description';
+  }
+
+  const markup = `<div class="information" data-id="${id}">
+  <img src="${imgPath}" alt="Movie poster"/>
     <div class="movie-details">
-      <h3 class="movie-heading">${title}</h3>
-      <ul class="movie-list-info">
-        <li class="movie-list-info__item">
-          <p class="movie-testimonial">Vote / Votes</p>
-          <p class="movie-mark">
-            <span class="rating">${vote_average.toFixed(1)}</span>
-            <span class="delimeter">/</span
-            ><span class="quantity">${vote_count}</span>
+      <h3 class="movie-details__heading">${title}</h3>
+      <ul class="movie-details__list-info">
+        <li class="list-info__item">
+          <p class="testimonial">Vote / Votes</p>
+          <p class="mark">
+            <span class="mark__rating">${vote_average.toFixed(1)}</span>
+            <span class="mark__delimeter">/</span
+            ><span class="mark__quantity">${vote_count}</span>
           </p>
         </li>
-        <li class="movie-list-info__item">
-          <p class="movie-testimonial">Popularity</p>
-          <p class="movie-mark">${popularity.toFixed(1)}</p>
+        <li class="list-info__item">
+          <p class="testimonial">Popularity</p>
+          <p class="mark">${popularity.toFixed(1)}</p>
         </li>
-        <li class="movie-list-info__item">
-          <p class="movie-testimonial">Original Title</p>
-          <p class="movie-mark movie-mark--original-title">${original_title}</p>
+        <li class="list-info__item">
+          <p class="testimonial">Original Title</p>
+          <p class="mark mark__original-title">${original_title}</p>
         </li>
-        <li class="movie-list-info__item">
-          <p class="movie-testimonial">Genre</p>
-          <p class="movie-mark">${genres
-            .map(genre => genre.name)
-            .join(', ')}</p>
+        <li class="list-info__item">
+          <p class="testimonial">Genre</p>
+          <p class="mark">${genresList}</p>
         </li>
       </ul>
-      <p class="about">About</p>
-      <p class="about-descr">${overview}</p>
+      <p class="about__text">About</p>
+      <p class="about__descr">${overview}</p>
       <div class="button-wrapper">
       <button class="button modal-film__btn-watched" type="button">Add to watched</button>
       <button class="button modal-film__btn-queque" type="button">Add to queue</button>

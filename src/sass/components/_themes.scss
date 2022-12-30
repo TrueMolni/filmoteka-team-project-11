@@ -1,0 +1,33 @@
+//! Прив'язатись в хедері, коли він з'явиться
+
+.header__themes {
+  //   display: flex;
+
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__themes-icon {
+  fill: #ff0000;
+
+  transition: fill 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    fill: #00ff80;
+    transform: scale(1.1);
+  }
+}
+
+.header__themes-icon.sun {
+  margin-right: 10px;
+}
+
+.light-theme {
+  color: #000000;
+}
+.dark-theme {
+  color: #ffffff;
+}

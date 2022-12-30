@@ -1,0 +1,117 @@
+.film__list {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding-top: 10px;
+
+  @media screen and (min-width: 768px){
+    margin-bottom: 60px;
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: calc(-1 * 30px);
+  }
+
+    @media screen and (min-width: 1280px){
+      margin-right: calc(-1 * 16px);
+    }
+}
+
+.gallery__item {
+  margin-top: 20px;
+
+  @media screen and (min-width: 768px){
+    flex-basis: calc(100% / 2 - 32px);
+      margin-right: 32px;
+      // display: flex;
+      margin-top: 32px;
+  }
+
+    @media screen and (min-width: 1280px){
+      flex-basis: calc(100% / 3 - 16px);
+        margin-right: 16px;
+    }
+}
+
+.img {
+  display: block;
+  max-width: 100%;
+  height: 398px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px){
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px){
+    height: 574px;
+  }
+}
+
+.item__text {
+  margin-top: 8px;
+}
+
+.item__capt {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
+  color: #000000;
+
+  @media screen and (min-width: 1280px){
+    font-size: 20px;
+      line-height: 1.2;
+  }
+}
+
+.item__wrap {
+  display: flex;
+}
+
+.item__genre {
+  font-family: 'Roboto' ;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #ff6b08;
+
+@media screen and (min-width: 1280px){
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}
+
+
+.item__rating {
+  margin-left: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: #ff6b01;
+  border-radius: 5px;
+  padding: 1px, 6px, 1px, 6px;
+  width: 36px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (min-width: 1280px){
+    width: 40px;
+      height: 20px;
+      padding: 3px, 8px, 3px, 8px;
+      margin-top: 5px;
+  }
+
+}
+

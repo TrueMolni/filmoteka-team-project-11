@@ -16,6 +16,9 @@ function onDarkTheme() {
 
   refs.iconMoon.removeEventListener('click', onDarkTheme);
   refs.iconSun.addEventListener('click', onLightTheme);
+
+  refs.iconSun.classList.remove('hidden-icon');
+  refs.iconMoon.classList.add('hidden-icon');
 }
 
 refs.iconSun.addEventListener('click', onLightTheme);
@@ -28,4 +31,7 @@ function onLightTheme() {
 
   refs.iconSun.removeEventListener('click', onLightTheme);
   refs.iconMoon.addEventListener('click', onDarkTheme);
+
+  refs.iconMoon.classList.remove('hidden-icon');
+  refs.iconSun.classList.add('hidden-icon');
 }

@@ -3,33 +3,33 @@
   margin-bottom: 40px;
   padding-top: 10px;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     margin-bottom: 60px;
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      margin-right: calc(-1 * 30px);
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc(-1 * 30px);
   }
 
-    @media screen and (min-width: 1280px){
-      margin-right: calc(-1 * 16px);
-    }
+  @media screen and (min-width: 1280px) {
+    margin-right: calc(-1 * 16px);
+  }
 }
 
 .gallery__item {
   margin-top: 20px;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     flex-basis: calc(100% / 2 - 32px);
-      margin-right: 32px;
-      // display: flex;
-      margin-top: 32px;
+    margin-right: 32px;
+    // display: flex;
+    margin-top: 32px;
   }
 
-    @media screen and (min-width: 1280px){
-      flex-basis: calc(100% / 3 - 16px);
-        margin-right: 16px;
-    }
+  @media screen and (min-width: 1280px) {
+    flex-basis: calc(100% / 3 - 16px);
+    margin-right: 16px;
+  }
 }
 
 .img {
@@ -39,11 +39,11 @@
   border-radius: 5px;
   cursor: pointer;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     height: 455px;
   }
 
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     height: 574px;
   }
 }
@@ -61,9 +61,9 @@
   text-transform: uppercase;
   color: #000000;
 
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     font-size: 20px;
-      line-height: 1.2;
+    line-height: 1.2;
   }
 }
 
@@ -72,19 +72,18 @@
 }
 
 .item__genre {
-  font-family: 'Roboto' ;
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   color: #ff6b08;
 
-@media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     font-size: 20px;
     line-height: 1.2;
   }
 }
-
 
 .item__rating {
   margin-left: 8px;
@@ -106,12 +105,10 @@
   justify-content: center;
   align-items: center;
 
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     width: 40px;
-      height: 20px;
-      padding: 3px, 8px, 3px, 8px;
-      margin-top: 5px;
+    height: 20px;
+    padding: 3px, 8px, 3px, 8px;
+    margin-top: 5px;
   }
-
 }
-

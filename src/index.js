@@ -9,3 +9,4 @@ import { getById } from './js/getById';
 import { createMarkup } from './js/markupListMovies.js';
 import './js/api';
 import './js/themes';
+import './js/modalOurTeam.js';

@@ -8,8 +8,8 @@ const refs = getRefsLS();
 localStorage.setItem("watched", "[]");
 localStorage.setItem("queue", "[]");
 
-refs.modalWatchedBtn.addEventListener('click', onAddToLS);
-refs.modalQueueBtn.addEventListener('click', onAddToLS);
+// refs.modalWatchedBtn.addEventListener('click', onAddToLS);
+// refs.modalQueueBtn.addEventListener('click', onAddToLS);
 
 function getCurrentBase() {
     if (refs.modalWatchedBtn.classList.contains('modal-film__btn-watched')) return 'watched';

@@ -4,7 +4,7 @@
   "description": "",
   "homepage": "https://TrueMolni.github.io/filmoteka-team-project-11",
   "scripts": {
-    "start": "parcel src/*.html -p 1598",
+    "start": "parcel src/*.html -p 4198",
     "build": "parcel build src/*.html --public-url /filmoteka-team-project-11/"
   },
   "repository": {
@@ -30,5 +30,7 @@
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
   },
+
+
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }

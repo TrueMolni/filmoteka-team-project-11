@@ -10,3 +10,4 @@ import { createMarkup } from './js/markupListMovies.js';
 import './js/api';
 import './js/themes';
 import './js/local-storage/localStoragе';
+import Spinner from './js/loader';

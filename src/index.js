@@ -11,4 +11,5 @@ import { createMarkup } from './js/markupListMovies.js';
 import './js/api';
 import './js/themes';
 import './js/local-storage/localStoragе';
+import './js/searchByKeyWord'
 

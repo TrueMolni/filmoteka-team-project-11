@@ -7,7 +7,7 @@ import { getTrending } from './getTrending.js';
 const container = document.getElementById('tui-pagination-container');
 const filmList = document.querySelector(".film__list");
 
-let total = 100;
+let total = 120;
   
 
 const apiServise = new ApiServise;

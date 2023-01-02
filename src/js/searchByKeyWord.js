@@ -14,50 +14,46 @@ const refs = {
   pagination: document.querySelector('#tui-pagination-container'),
 };
 
+const onSearchBtnClick = event => {
+  //   console.log('click');
+  event.preventDefault();
 
-const onSerchBtnClick = e => {
-//   console.log('click');
-  e.preventDefault();
+  userFilms.userSearch = event.target.elements.query.value.trim();
 
-  userFilms.userSearch = e.target.elements.query.value.trim();
-
-//   console.log(userFilms.userSearch);
+    console.log(userFilms);
 
   userFilms
     .onSearchFilm()
     .then(data => {
-    //   console.log('onSearchFilm DATA', data.results);
-      clearInput();
+      //   console.log('onSearchFilm DATA', data.results);
+
       clearRender();
       if (data.results.length === 0) {
         Notiflix.Notify.failure(
           'Sorry, there are no videos matching your search query. Please try again.'
         );
         refs.moviesList.innerHTML = noResults();
-        refs.pagination.innerHTML = " ";
+        refs.pagination.innerHTML = ' ';
 
         return;
-        }
-        
-        refs.moviesList.innerHTML = createMarkup(data);
-        
+      }
+      clearInput()
+      refs.moviesList.innerHTML = createMarkup(data);
     })
     .catch(
-    //   error => console.dir(error)
-      Notiflix.Notify.failure("Error occured!")
+      error => console.dir(error)
+      //   Notiflix.Notify.failure("Error occured!")
     );
 };
-refs.formEl.addEventListener('submit', onSerchBtnClick);
+refs.formEl.addEventListener('submit', onSearchBtnClick);
 
 function noResults() {
   return `<li class="no-results"><img src='https://i.gifer.com/4m3f.gif' alt="No results"   class="img_r"/></li>`;
 }
 function clearInput() {
-  userFilms.userSearch = '';
+    refs.inputEl.value = '';
+    
 }
 function clearRender() {
   refs.moviesList.innerHTML = '';
 }
-
-
-

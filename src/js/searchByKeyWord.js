@@ -20,26 +20,28 @@ const onSearchBtnClick = event => {
 
   userFilms.userSearch = event.target.elements.query.value.trim();
 
-    console.log(userFilms);
+  // console.log(userFilms);
 
   userFilms
     .onSearchFilm()
     .then(data => {
       //   console.log('onSearchFilm DATA', data.results);
+      setTimeout(() => {
+        clearRender();
+        if (data.results.length === 0) {
+          Notiflix.Notify.failure(
+            'Sorry, there are no videos matching your search query. Please try again.'
+          );
+          refs.moviesList.innerHTML = noResults();
+          refs.pagination.innerHTML = ' ';
 
-      clearRender();
-      if (data.results.length === 0) {
-        Notiflix.Notify.failure(
-          'Sorry, there are no videos matching your search query. Please try again.'
-        );
-        refs.moviesList.innerHTML = noResults();
-        refs.pagination.innerHTML = ' ';
+          return;
+        }
+        clearInput();
+        refs.moviesList.innerHTML = createMarkup(data);
+      });
+    }, 1000)
 
-        return;
-      }
-      clearInput()
-      refs.moviesList.innerHTML = createMarkup(data);
-    })
     .catch(
       error => console.dir(error)
       //   Notiflix.Notify.failure("Error occured!")
@@ -51,8 +53,7 @@ function noResults() {
   return `<li class="no-results"><img src='https://i.gifer.com/4m3f.gif' alt="No results"   class="img_r"/></li>`;
 }
 function clearInput() {
-    refs.inputEl.value = '';
-    
+  refs.inputEl.value = '';
 }
 function clearRender() {
   refs.moviesList.innerHTML = '';

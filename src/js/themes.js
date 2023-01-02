@@ -25,6 +25,9 @@ function onDarkTheme() {
   refs.iconMoon.removeEventListener('click', onDarkTheme);
   refs.iconSun.addEventListener('click', onLightTheme);
 
+  refs.iconSun.classList.remove('hidden-icon');
+  refs.iconMoon.classList.add('hidden-icon');
+
   localStorage.setItem('themes', JSON.stringify('DarkTheme')); //! Додає в localStorage, що була вибрана темна тема
 }
 
@@ -37,6 +40,9 @@ function onLightTheme() {
 
   refs.iconSun.removeEventListener('click', onLightTheme);
   refs.iconMoon.addEventListener('click', onDarkTheme);
+
+  refs.iconMoon.classList.remove('hidden-icon');
+  refs.iconSun.classList.add('hidden-icon');
 
   localStorage.setItem('themes', JSON.stringify('LightTheme')); //! Додає в localStorage, що була вибрана світла тема
 }
@@ -54,5 +60,8 @@ function setDefaultTheme() {
 
     refs.iconMoon.removeEventListener('click', onDarkTheme);
     refs.iconSun.addEventListener('click', onLightTheme);
+
+    refs.iconSun.classList.remove('hidden-icon');
+    refs.iconMoon.classList.add('hidden-icon');
   }
 }

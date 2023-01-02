@@ -10,11 +10,15 @@ const roundedVoteAverage = function(voteAverage){
 
 const getGenres = (genres) => {
     let genresArr = genres.map(genres => genres.name);
-    if(genresArr.length > 2) {
-        return genresArr.slice(0,3);
+    if(genresArr.length > 3) {
+        array = genresArr.slice(0,2);
+        array[array.length] = 'Other';
+        return array.join(', ');
     }
-    return genresArr;
+    return genresArr.join(', ');
 }
+
+
 
 export const parseOneFilm = (film) => {
     return {

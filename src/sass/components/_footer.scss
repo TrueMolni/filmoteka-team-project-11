@@ -1,3 +1,19 @@
 .footer {
+  min-width: 320px;
+  height: 100px;
   background-color: var(--footer-background);
+}
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.footer__descr {
+  font-family: var(--main-font);
+  font-weight: var(--roboto-regular);
+  font-size: 14px;
+  // @include font(14, 16);
 }

@@ -5,7 +5,10 @@ let currentPage = 1;
 const moviesList = document.querySelector('.film__list')
 
 getTrending(currentPage).then(res => {
-  moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
+  const headerCheck = document.querySelector('.side-nav__link');
+  if (headerCheck.classList.contains('home')){
+    moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
+  }
 });
 
 

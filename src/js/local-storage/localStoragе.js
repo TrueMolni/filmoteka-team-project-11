@@ -21,7 +21,7 @@ function onAddToLS(e) {
     const localStorageKey = targetBtn === refs.modalWatchedBtn ? 'watched' : 'queue';
 
     // ТИМЧАСОВА КОНСТРУКЦІЯ ПОКИ НЕ ВІДОМО ЗВДКИ БРАТИ ID (БЕРУ РАНДОМНИЙ З ПРИДУМАНОГО МНОЮ МАСИВУ З 4-х карточок)
-    const getRandomId = [661374, 76600, 877269, 668482]
+    const getRandomId = [661374, 76600, 877269, 668482, 744594, 555604, 546554]
     const randId = Math.floor(Math.random() * getRandomId.length);
 
     const filmId = getRandomId[randId]; // id фільму, який хоче додати або видалити користувач з Local Storage

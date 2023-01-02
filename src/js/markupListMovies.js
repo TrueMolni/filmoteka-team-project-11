@@ -80,9 +80,10 @@ function getGenreById(genreId, genresArray) {
             </div>
           </li>`;
         }
-)
+        )
       .join('');
     return markup;
   }
+
 }
 export{createMarkup}

@@ -1,16 +1,20 @@
-//! Прив'язатись в хедері, коли він з'явиться
+//! Прив'язуюь до контейнера Хедера
+.header-bg .container {
+  position: relative;
+}
+
 .header__themes-icon {
   position: absolute;
   // display: flex;
   justify-content: flex-end;
   padding: 0;
 
-  right: 370px;
-  top: 185px;
+  // right: 370px;
+  // top: 185px;
 
   //! Це відстань позиціонування всередині хедера
-  // right: 20px;
-  // top: 185px;
+  right: 20px;
+  top: 185px;
 
   // @include tab {
   //   right: 25px;

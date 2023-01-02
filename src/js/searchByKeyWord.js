@@ -50,6 +50,7 @@ const onSearchBtnClick = event => {
 refs.formEl.addEventListener('submit', onSearchBtnClick);
 
 function noResults() {
+    clearInput();
   return `<li class="no-results"><img src='https://i.gifer.com/4m3f.gif' alt="No results"   class="img_r"/></li>`;
 }
 function clearInput() {

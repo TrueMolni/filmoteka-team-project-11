@@ -47,24 +47,25 @@
 }
 
 .tui-pagination .tui-page-btn:hover {
-    background-color: #f4f4f4;
+    background-color:var(--footer-background);
+    border-radius: 5px;
 }
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
     color: #fff;
-    background: #4b96e6;
-    border-color: #4b96e6;
+    background: var(--accent-color);
+    border-radius: 5px;
     cursor: default;
 }
 
 .tui-pagination .tui-is-selected:hover {
-    background-color: #4b96e6;
+    background-color: var(--accent-color);
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
 .tui-pagination strong.tui-first-child {
-    margin-left: 0
+    margin-left: 0;
 }
 
 // .tui-pagination .tui-first-child,
@@ -79,11 +80,11 @@
 
 
 .tui-pagination .tui-first-child.tui-is-selected {
-    border-left: 1px solid #4b96e6
+    border-left: 1px solid var(--accent-color);
 }
 
 .tui-pagination .tui-last-child.tui-is-selected {
-    border-right: 1px solid #4b96e6
+    border-right: 1px solid var(--accent-color);
 }
 
 .tui-pagination .tui-first,
@@ -99,7 +100,24 @@
     white-space: nowrap;
     font-weight: normal;
     padding: 12px;
+    border-radius: 5px;
 }
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-last{
+    overflow: hidden;
+        height: 40px;
+        padding: 0;
+        font-size: 0;
+        white-space: nowrap;
+        font-weight: normal;
+        padding: 12px;
+        background-color: var(--footer-background);
+        border-radius: 5px;
+        box-shadow:var(--shadow-page-pagination);
+   
+}
+
 
 .tui-pagination .tui-prev-is-ellip {
     border-right: 0
@@ -170,24 +188,24 @@
 }
 
 .tui-pagination .tui-is-disabled:hover {
-    background: #fff;
-    cursor: default
+    background: var(--footer-background);
+    cursor: default;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-prev {
-    background-position: -26px -12px
+    background-position: -26px -12px;
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-first {
-    background-position: -13px 0px
-}
+    background-position: -13px 0px;}
 
 .tui-pagination .tui-is-disabled .tui-ico-next {
-    background-position: -21px -24px
+    background-position: -21px -24px;
+    
 }
 
 .tui-pagination .tui-is-disabled .tui-ico-last {
-    background-position: -13px -12px
+    background-position: -13px -12px;
 }
 
 .tui-page-inputs {
@@ -202,13 +220,12 @@
     padding: 8px 0 6px;
     font-size: 12px;
     text-align: center;
-    color: #333;
+    color: #000;
     border: 0;
-    outline: none;
-}
+    outline: none;}
 
 .tui-page-inputs .tui-page-current {
-    color: #4b96e6
+    color: var(--accent-color);
 }
 
 .tui-page-separator {
@@ -216,5 +233,16 @@
     font-size: 12px;
     height: 12px;
     padding: 8px 0 6px;
-    vertical-align: top
+    vertical-align: top;
 }
+.tui-first.tui-is-disabled {
+    background-color: var(--footer-background);
+    border-radius: 5px;
+   
+}
+
+.tui-last.tui-is-disabled {
+    background-color: var(--footer-background);
+        border-radius: 5px;
+    
+    }

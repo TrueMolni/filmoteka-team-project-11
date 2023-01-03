@@ -56,7 +56,7 @@ const onSearchBtnClick = event => {
         }
 
         // clearInput();
-        
+
 // Додаю виклик за ключовим словом через пагінацію:
         loadFirstPageOnSearch()
 // Відповідно видаляю рендер першої сторінки тут:
@@ -104,7 +104,6 @@ async function loadMoreFilmsOnSearch(event) {
   
 };
 
-
 async function loadFirstPageOnSearch() {
  
   const response = await userFilms.onSearchFilm();
@@ -114,3 +113,4 @@ async function loadFirstPageOnSearch() {
   refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
   
 };
+

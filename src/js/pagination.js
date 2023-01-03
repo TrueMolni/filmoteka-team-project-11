@@ -47,8 +47,6 @@ async function loadMoreFilms(event) {
  
   const response = await apiServise.getTrendingFilm();
 
-  console.log(response.total_results)
-
   pagination.setTotalItems(response.total_results)
 
   filmList.insertAdjacentHTML('beforeend', createMarkup(response))
@@ -63,8 +61,6 @@ export function cleanContainer(){
 async function loadFirstPage() {
  
   const response = await apiServise.getTrendingFilm();
-
-  console.log(response.total_results)
 
   pagination.reset(response.total_results)
 

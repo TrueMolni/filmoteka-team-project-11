@@ -64,8 +64,6 @@ async function loadFirstPageOnSearch() {
  
   const response = await userFilms.onSearchFilm();
 
-  console.log(response.total_results)
-
   pagination.reset(response.total_results)
 
   refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
@@ -110,8 +108,6 @@ async function loadMoreFilmsOnSearch(event) {
  userFilms.page=event.page; 
  
   const response = await userFilms.onSearchFilm();
-
-  console.log(response.total_results)
 
   pagination.setTotalItems(response.total_results)
 

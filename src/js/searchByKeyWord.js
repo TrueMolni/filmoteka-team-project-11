@@ -1,11 +1,10 @@
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 import { srcImgBase } from './markupListMovies';
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
 import Pagination from 'tui-pagination';
-// const pagination = new Pagination();
-// import { cleanContainer } from './pagination';
+
 const refs = {
   inputEl: document.querySelector('.search-field'),
   searchBtn: document.querySelector('.search-btn'),

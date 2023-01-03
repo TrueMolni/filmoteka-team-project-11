@@ -1,3 +1,6 @@
+// utils
+@import './utils/brakpoints'; //це міксин для адаптивки. Треба, щоб він був зверху, бо знизу не працю
+
 // base
 @import './base/base';
 @import './base/common';

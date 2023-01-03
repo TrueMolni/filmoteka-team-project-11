@@ -22,7 +22,7 @@
 }
 
 .modal_our-team {
-    margin-top: 35%;
+    margin-top: 285%;
     width: 280px;
     position: absolute;
     top: 50%;
@@ -36,7 +36,7 @@
 
 @media screen and (min-width: 768px) {
     .modal_our-team {
-        margin-top: 8%;
+        margin-top: 42%;
         width: 600px;
         padding: 40px 36px;
     }
@@ -127,8 +127,9 @@
 }
 
 .employe-photo {
-    width: auto;
+    width: 250px;
     height: 250px;
+    object-fit: cover;
 }
 
 .position_name {

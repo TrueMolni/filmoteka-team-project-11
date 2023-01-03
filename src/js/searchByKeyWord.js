@@ -12,6 +12,7 @@ const refs = {
   formEl: document.querySelector('.search-form'),
   moviesList: document.querySelector('.film__list'),
   pagination: document.querySelector('#tui-pagination-container'),
+  searchResField: document.querySelector('.js-search-results'),
 };
 
 const onSearchBtnClick = event => {

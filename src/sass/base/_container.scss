@@ -15,3 +15,7 @@ margin: 0 auto;
     width: 1200px;
 }
 }
+
+.film__container {
+    min-height: calc(100vh - 230px - 100px - 28px);
+}

@@ -11,7 +11,7 @@ backdrop.addEventListener('click', onBackdropClick);
 
 function onModalWindowOpen(e) {
   const value = Object(e.target);
-  console.log('click');
+  // console.log('click');
   e.preventDefault();
   if (!e.target.closest('li')) {
     return;
@@ -49,5 +49,5 @@ function onEscClose(event) {
   }
 }
 
-onModalWindowOpen();
-console.dir(document);
+// onModalWindowOpen();
+// console.dir(document);

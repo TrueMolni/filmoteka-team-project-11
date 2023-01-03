@@ -13,3 +13,4 @@ import './js/modalOurTeam.js';
 // import './js/local-storage/localStoragе';
 // import './js/local-storage/libraryButtons';
 import Spinner from './js/loader';
+import './js/scroll';

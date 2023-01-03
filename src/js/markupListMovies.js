@@ -60,7 +60,7 @@ function createMarkup(res) {
 
           let voteAverage = vote_average.toFixed(1);
 
-          return `<li class="gallery__item film-card" data-modal-open>
+          return `<li class="gallery__item film-card" data-id="${id}" data-modal-open>
             <img src="${srcImgBase}${poster}" alt="${title}" class="img" id="${id}" />
             <div class="item__text">
               <h2 class="item__capt">${title}</h2>

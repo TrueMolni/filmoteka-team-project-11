@@ -1,45 +1,36 @@
 import { renderMovieModal } from './renderMovieModal.js';
-import { createMarkup } from './markupListMovies.js';
 import { getById } from './getById';
-import { createMarkup } from './markupListMovies';
 
-const filmGallery = document.querySelector('.film-card');
-// filmGallery.forEach(filmCard => {
-//   filmCard.addEventListener('click', onModalWindowOpen);
-// });
-
-// const body = document.querySelector('body');
-// const modalWindow = document.querySelector('.modal');
+const filmGallery = document.querySelector('.film__list');
 const backdrop = document.querySelector('.backdrop');
 const closeButton = document.querySelector('.close-button');
 
 filmGallery.addEventListener('click', onModalWindowOpen);
-
 closeButton.addEventListener('click', onModalWindowClose);
-// backdrop.addEventListener('click', onBackdropClick);
+backdrop.addEventListener('click', onBackdropClick);
 
 function onModalWindowOpen(e) {
-  //   const value = Object(event.target);
+  const value = Object(e.target);
   console.log('click');
-  //   e.preventDefault();
-  //   if (!e.target.closest('li')) {
-  //     return;
-  //   } else if (e.target.closest('li')) {
-  //     const movieId = e.target.closest('li').dataset.id;
-  //     const information = document.querySelector('.information');
-  //     if (information) {
-  //       information.remove();
-  //     }
-  getById(200)
-    .then(movie => {
-      renderMovieModal(movie);
-    })
-    .catch(error => console.log(error));
-  document.body.style.overflow = 'hidden';
-  backdrop.classlist.remove('is-hidden');
-  document.addEventListener('keydown', onEscClose);
+  e.preventDefault();
+  if (!e.target.closest('li')) {
+    return;
+  } else if (e.target.closest('li')) {
+    const movieId = e.target.closest('li').dataset.id;
+    const information = document.querySelector('.information');
+    if (information) {
+      information.remove();
+    }
+    getById(movieId)
+      .then(movie => {
+        renderMovieModal(movie);
+      })
+      .catch(error => console.log(error));
+    document.body.style.overflow = 'hidden';
+    backdrop.classList.remove('is-hidden');
+    document.addEventListener('keydown', onEscClose);
+  }
 }
-// }
 
 function onModalWindowClose() {
   backdrop.classList.add('is-hidden');
@@ -59,3 +50,4 @@ function onEscClose(event) {
 }
 
 onModalWindowOpen();
+console.dir(document);

@@ -56,10 +56,11 @@ const onSearchBtnClick = event => {
         }
 
         // clearInput();
-
+        
+// Додаю виклик за ключовим словом через пагінацію:
         loadFirstPageOnSearch()
-
-        // refs.moviesList.innerHTML = createMarkup(data);
+// Відповідно видаляю рендер першої сторінки тут:
+// refs.moviesList.innerHTML = createMarkup(data);
         refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
         refs.searchResField.style.color = '#818181';
       });
@@ -85,6 +86,7 @@ function clearWarning() {
 }
 
 
+// Додаю пагінацію на решту сторінок, крім першої:
 
 pagination.on('afterMove', loadMoreFilmsOnSearch);
 

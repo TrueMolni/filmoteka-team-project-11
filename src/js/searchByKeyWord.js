@@ -39,6 +39,8 @@ const onSearchBtnClick = event => {
         }
         clearInput();
         refs.moviesList.innerHTML = createMarkup(data);
+        refs.searchResField.textContent = `Yay! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
+        refs.searchResField.style.color = '#818181';
       });
     }, 1000)
 
@@ -50,7 +52,7 @@ const onSearchBtnClick = event => {
 refs.formEl.addEventListener('submit', onSearchBtnClick);
 
 function noResults() {
-    clearInput();
+  clearInput();
   return `<li class="no-results"><img src='https://i.gifer.com/4m3f.gif' alt="No results"   class="img_r"/></li>`;
 }
 function clearInput() {

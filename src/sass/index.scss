@@ -1,3 +1,6 @@
+// utils
+@import './utils/brakpoints'; //це міксин для адаптивки. Треба, щоб він був зверху, бо знизу не працю
+
 // base
 @import './base/base';
 @import './base/common';
@@ -14,10 +17,12 @@
 @import './components/searchByKeyWord';
 @import './components/loader';
 @import './components/clear-library';
+@import './components/scroll';
 //layout
 
 //modules
 @import './modules/modal_our-team';
+@import './modules/modal';
 // utils
 @import './utils/mixins';
 @import './utils/visually-hidden';

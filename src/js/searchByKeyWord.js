@@ -55,8 +55,6 @@ const onSearchBtnClick = event => {
         refs.searchResField.textContent = ` We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
         refs.searchResField.style.color = '#818181';
         
-
-        
       });
     }, 1000)
 
@@ -88,5 +86,4 @@ function clearRender() {
 
 function clearWarning() {
   refs.warningField.textContent = '';
-  
 }

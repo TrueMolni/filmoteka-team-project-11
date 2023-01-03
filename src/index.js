@@ -8,8 +8,10 @@ import { getTrending } from './js/getTrending.js';
 import { getById } from './js/getById';
 import { createMarkup } from './js/markupListMovies.js';
 import './js/themes';
-import './js/searchByKeyWord'
+import './js/searchByKeyWord';
 import './js/modalOurTeam.js';
-import './js/local-storage/localStoragе';
-import './js/local-storage/libraryButtons';
+import './js/modal';
+// import './js/local-storage/localStoragе';
+// import './js/local-storage/libraryButtons';
 import Spinner from './js/loader';
+import './js/scroll';

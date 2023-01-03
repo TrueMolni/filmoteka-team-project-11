@@ -11,9 +11,9 @@
     margin-right: calc(-1 * 30px);
   }
 
- @media screen and (min-width: 1200px){
-      margin-right: calc(-1 * 16px);
-    }
+  @media screen and (min-width: 1200px) {
+    margin-right: calc(-1 * 16px);
+  }
 }
 
 .gallery__item {
@@ -25,15 +25,15 @@
     // display: flex;
     margin-top: 32px;
   }
-  @media screen and (min-width: 1200px){
-      flex-basis: calc(100% / 3 - 16px);
-        margin-right: 16px;
-    }
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc(100% / 3 - 16px);
+    margin-right: 16px;
+  }
 }
 
 .img {
   display: block;
-  max-width: 100%;
+  min-width: 100%; //! max змінив на min
   height: 398px;
   border-radius: 5px;
   cursor: pointer;
@@ -42,7 +42,7 @@
     height: 455px;
   }
 
- @media screen and (min-width: 1200px){
+  @media screen and (min-width: 1200px) {
     height: 574px;
   }
 }
@@ -59,14 +59,17 @@
   line-height: 1.33;
   text-transform: uppercase;
 
-@media screen and (min-width: 1200px){
+  @media screen and (min-width: 1200px) {
     font-size: 20px;
     line-height: 1.2;
   }
 }
 
 .item__wrap {
+  position: relative; //!
+
   display: flex;
+  justify-content: space-between; //!
 }
 
 .item__genre {
@@ -76,15 +79,15 @@
   font-size: 12px;
   line-height: 1.33;
   color: var(--accent-color);
-  
-  @media screen and (min-width: 1200px){
 
+  @media screen and (min-width: 1200px) {
     font-size: 20px;
     line-height: 1.2;
   }
 }
 
 .item__rating {
+  position: absolute; //! Відносне позиціонування
   margin-left: 8px;
   font-style: normal;
   font-weight: 500;
@@ -103,11 +106,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
-    @media screen and (min-width: 1200px){
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.705); //!Додає тінь під рейтингом
+
+  @media screen and (min-width: 1200px) {
     width: 40px;
     height: 20px;
     padding: 3px, 8px, 3px, 8px;
     margin-top: 5px;
+  }
+
+  //! Адаптивна верстка
+  @include mq(mobile-only) {
+    width: 60px;
+    height: 30px;
+
+    right: 0px; //! Встановити -5px, щоб змістилось праворуч
+    bottom: 408px; //! Додати + 5px, щоб змістилось вгору
+    font-size: 16px;
+  }
+  @include mq(tablet) {
+    width: 70px;
+    height: 35px;
+
+    right: 0px;
+    bottom: 460px;
+    font-size: 18px;
+  }
+  @include mq(desktop) {
+    width: 80px;
+    height: 40px;
+
+    right: 0px;
+    bottom: 590px;
+    font-size: 20px;
   }
 }

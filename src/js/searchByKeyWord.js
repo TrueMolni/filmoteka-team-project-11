@@ -1,9 +1,8 @@
 // import Notiflix from 'notiflix';
-import { srcImgBase } from './markupListMovies';
+
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
-import Pagination from 'tui-pagination';
 
 const refs = {
   inputEl: document.querySelector('.search-field'),
@@ -71,7 +70,7 @@ const onSearchBtnClick = event => {
         console.log('remove message')
         refs.searchResField.textContent = ' ';
         clearWarning()
-      }, 3000)
+      }, 4000)
     );
 };
 refs.formEl.addEventListener('submit', onSearchBtnClick);
@@ -89,4 +88,5 @@ function clearRender() {
 
 function clearWarning() {
   refs.warningField.textContent = '';
+  
 }

@@ -57,20 +57,7 @@ const onSearchBtnClick = event => {
 
         // clearInput();
 
-  
-
-
-async function loadFirstPageOnSearch() {
- 
-  const response = await userFilms.onSearchFilm();
-
-  pagination.reset(response.total_results)
-
-  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-  
-};
-
-loadFirstPageOnSearch()
+        loadFirstPageOnSearch()
 
         // refs.moviesList.innerHTML = createMarkup(data);
         refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
@@ -116,94 +103,12 @@ async function loadMoreFilmsOnSearch(event) {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const onSearchBtnClick = event => {
-//   //   console.log('click');
-//   event.preventDefault();
-
-//   userFilms.userSearch = event.target.elements.query.value.trim();
-
-
-
-//   // console.log(userFilms);
-
-//   userFilms
-//     .onSearchFilm()
-//     .then(data => {
-//       //   console.log('onSearchFilm DATA', data.results);
-//       setTimeout(() => {
-//         clearRender();
-//         if (data.results.length === 0) {
-//           Notiflix.Notify.failure(
-//             'Sorry, there are no videos matching your search query. Please try again.'
-//           );
-//           refs.moviesList.innerHTML = noResults();
-//           refs.pagination.innerHTML = ' ';
-
-//           return;
-//         }
-//         clearInput();
-//         refs.moviesList.innerHTML = createMarkup(data);
-// };
-        
-//         const pagination = new Pagination(refs.containerPagination, options);
-
-//         pagination.on('afterMove', loadMoreFilms);
-
-//         async function loadMoreFilms(event) {
-
-//         clearRender();
+async function loadFirstPageOnSearch() {
  
-//         userFilms.page=event.page; 
- 
-//   const response = await userFilms.onSearchFilm();
+  const response = await userFilms.onSearchFilm();
 
-//   console.log(response.total_results)
+  pagination.reset(response.total_results)
+
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
   
-//   pagination.setTotalItems(response.total_results);
-  
-//   refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-// };
-//   pagination.movePageTo(1);
-//       });
-//     }, 1000)
-
-//     .catch(
-//       error => console.dir(error)
-//       //   Notiflix.Notify.failure("Error occured!")
-//     );
-// refs.formEl.addEventListener('submit', onSearchBtnClick);
-
-// function noResults() {
-//     clearInput();
-//   return `<li class="no-results"><img src='https://i.gifer.com/4m3f.gif' alt="No results"   class="img_r"/></li>`;
-// }
-// function clearInput() {
-//   refs.inputEl.value = '';
-// }
-// function clearRender() {
-//   refs.moviesList.innerHTML = '';
-// }
-
+};

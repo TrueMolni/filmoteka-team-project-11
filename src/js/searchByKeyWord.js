@@ -1,11 +1,9 @@
-import Notiflix from 'notiflix';
-import { srcImgBase } from './markupListMovies';
+// import Notiflix from 'notiflix';
+
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
-import Pagination from 'tui-pagination';
-// const pagination = new Pagination();
-// import { cleanContainer } from './pagination';
+
 const refs = {
   inputEl: document.querySelector('.search-field'),
   searchBtn: document.querySelector('.search-btn'),
@@ -51,17 +49,26 @@ const onSearchBtnClick = event => {
           return;
         }
 
-        // clearInput();
+        clearInput();
 
         refs.moviesList.innerHTML = createMarkup(data);
-        refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
+        refs.searchResField.textContent = ` We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
         refs.searchResField.style.color = '#818181';
+        
       });
     }, 1000)
 
     .catch(
       error => console.dir(error)
       //   Notiflix.Notify.failure("Error occured!")
+  )
+    .finally(
+      
+      setTimeout(() => {
+        console.log('remove message')
+        refs.searchResField.textContent = ' ';
+        clearWarning()
+      }, 4000)
     );
 };
 refs.formEl.addEventListener('submit', onSearchBtnClick);
@@ -78,5 +85,5 @@ function clearRender() {
 }
 
 function clearWarning() {
-  refs.warningField.innerHTML = '';
+  refs.warningField.textContent = '';
 }

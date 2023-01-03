@@ -10,4 +10,5 @@ import { createMarkup } from './js/markupListMovies.js';
 import './js/api';
 import './js/themes';
 import './js/modalOurTeam.js';
+import './js/modal';
 // import './js/local-storage/localStoragе';

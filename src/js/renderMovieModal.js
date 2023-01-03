@@ -19,9 +19,9 @@ export function renderMovieModal({
 
   let imgPath = '';
   if (poster_path) {
-    imgPath = 'https://image.tmdb.org/t/p/w500${poster_path}';
+    imgPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
   } else {
-    imgPath = defaultPicture; // потрібно якусь дефолтну картинку в images або якійсь напис придумати
+    imgPath = '/uc4RAVW1T3T29h6OQdr7zu4Blui.jpg'; // потрібно якусь дефолтну картинку в images або якійсь напис придумати
   }
 
   let descr = '';
@@ -60,8 +60,8 @@ export function renderMovieModal({
       <p class="about__text">About</p>
       <p class="about__descr">${overview}</p>
       <div class="button-wrapper">
-      <button class="button modal-film__btn-watched" type="button">Add to watched</button>
-      <button class="button modal-film__btn-queque" type="button">Add to queue</button>
+      <button class="btton modal-film__btn-watched" type="button">Add to watched</button>
+      <button class="btton modal-film__btn-queque" type="button">Add to queue</button>
     </div>
   </div>
 </div>`;

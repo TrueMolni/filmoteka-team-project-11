@@ -64,7 +64,7 @@ async function loadFirstPage() {
 
   const response = await apiServise.getTrendingFilm();
 
-  pagination.reset(response.total_results)
+  pagination.reset(response.total_results);
 
   const headerCheck = document.querySelector('.side-nav__link');
 

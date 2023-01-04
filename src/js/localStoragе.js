@@ -1,7 +1,7 @@
-import { getRefs } from '../refs';
+import { getRefs } from './refs';
 import { getFilmData } from './findAndAuditLS';
 import { loadDataFromLS, setDataToLS } from './localStorageData';
-import { changeBtnStyle } from '../changeModalBtn';
+import { changeBtnStyle } from './changeModalBtn';
 
 const refs = getRefs();
 

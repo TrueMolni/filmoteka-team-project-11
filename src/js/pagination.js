@@ -49,11 +49,7 @@ async function loadMoreFilms(event) {
 
   const response = await apiServise.getTrendingFilm();
 
-  total = response.total_results;
-
-  console.log(total)
-
- pagination.setTotalItems(total);
+ pagination.setTotalItems(response.total_results);
 
   filmList.insertAdjacentHTML('beforeend', createMarkup(response))
 

@@ -4,9 +4,8 @@ import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
 import Pagination from 'tui-pagination';
-import {options} from "./pagination"
-import {cleanContainer} from './pagination';
-
+import { options } from './pagination';
+import { cleanContainer } from './pagination';
 
 const refs = {
   inputEl: document.querySelector('.search-field'),
@@ -31,10 +30,46 @@ const onSearchBtnClick = event => {
     refs.warningField.textContent = `Please write something in the field`;
     return;
   }
-loadFirstPageOnSearch()
+
   // console.log(userFilms);
-}
- 
+
+  userFilms
+    .onSearchFilm()
+    .then(data => {
+      // console.log('onSearchFilm DATA', data);
+      setTimeout(() => {
+        cleanContainer();
+        clearWarning();
+        if (data.results.length === 0) {
+          // Notiflix.Notify.failure(
+          //   'Sorry, there are no videos matching your search query. Please try again.'
+          // );
+
+          refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
+          refs.searchResField.textContent = '';
+
+          refs.moviesList.innerHTML = noResults();
+          refs.pagination.innerHTML = ' ';
+
+          return;
+        }
+
+        // clearInput();
+
+        // Додаю виклик за ключовим словом через пагінацію:
+        loadFirstPageOnSearch();
+        // Відповідно видаляю рендер першої сторінки тут:
+        // refs.moviesList.innerHTML = createMarkup(data);
+        refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
+        refs.searchResField.style.color = '#818181';
+      });
+    }, 1000)
+
+    .catch(
+      error => console.dir(error)
+      //   Notiflix.Notify.failure("Error occured!")
+    );
+};
 refs.formEl.addEventListener('submit', onSearchBtnClick);
 
 function noResults() {
@@ -49,54 +84,26 @@ function clearWarning() {
   refs.warningField.innerHTML = '';
 }
 
-
 // Додаю пагінацію на решту сторінок, крім першої:
 
 pagination.on('afterMove', loadMoreFilmsOnSearch);
 
 async function loadMoreFilmsOnSearch(event) {
+  cleanContainer();
 
- cleanContainer();
- 
- userFilms.page=event.page; 
- 
+  userFilms.page = event.page;
+
   const response = await userFilms.onSearchFilm();
 
-  pagination.setTotalItems(response.total_results)
+  pagination.setTotalItems(response.total_results);
 
-  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-  
-};
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response));
+}
 
-  async function loadFirstPageOnSearch() {
- 
-    const response = await userFilms.onSearchFilm();
+async function loadFirstPageOnSearch() {
+  const response = await userFilms.onSearchFilm();
 
-    // console.log('onSearchFilm DATA', data);
-    setTimeout(() => {
-      cleanContainer();
-      clearWarning();
-      if (response.results.length === 0) {
-        // Notiflix.Notify.failure(
-        //   'Sorry, there are no videos matching your search query. Please try again.'
-        // );
+  pagination.reset(response.total_results);
 
-        refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
-        refs.searchResField.textContent = '';
-
-        refs.moviesList.innerHTML = noResults();
-        refs.pagination.innerHTML = ' ';
-
-        return;
-      }
-
-      refs.searchResField.textContent = `Hooray! We found ${response.total_results} results on request "${userFilms.userSearch}"!`;
-      refs.searchResField.style.color = '#818181';
-      
-refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-    }, 1000)
-
-    pagination.reset(response.total_results)
-};
-
-
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response));
+}

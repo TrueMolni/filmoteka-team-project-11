@@ -16,10 +16,10 @@ const moviesList = document.querySelector('.film__list');
 
 
 
-function getGenreById(genreId, genresArray) {
-  const genres = genresArray.find(option => option.id === genreId);
-  return genres.name;
-}
+// function getGenreById(genreId, genresArray) {
+//   const genres = genresArray.find(option => option.id === genreId);
+//   return genres.name;
+// }
 
 function createMarkup(res) {
   if (res.results.length >= 1) {
@@ -29,7 +29,7 @@ function createMarkup(res) {
           //
           const genresList = JSON.parse(localStorage.getItem('genres'));
           let genres = genre_ids.map(item => {
-          return getGenreById(item, genresList);
+          // return getGenreById(item, genresList);
           })
 
           let genresMarkup = '';

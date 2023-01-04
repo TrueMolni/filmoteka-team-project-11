@@ -31,46 +31,10 @@ const onSearchBtnClick = event => {
     refs.warningField.textContent = `Please write something in the field`;
     return;
   }
-
+loadFirstPageOnSearch()
   // console.log(userFilms);
-
-  userFilms
-    .onSearchFilm()
-    .then(data => {
-      // console.log('onSearchFilm DATA', data);
-      setTimeout(() => {
-        cleanContainer();
-        clearWarning();
-        if (data.results.length === 0) {
-          // Notiflix.Notify.failure(
-          //   'Sorry, there are no videos matching your search query. Please try again.'
-          // );
-
-          refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
-          refs.searchResField.textContent = '';
-
-          refs.moviesList.innerHTML = noResults();
-          refs.pagination.innerHTML = ' ';
-
-          return;
-        }
-
-        // clearInput();
-
-// Додаю виклик за ключовим словом через пагінацію:
-        loadFirstPageOnSearch()
-// Відповідно видаляю рендер першої сторінки тут:
-// refs.moviesList.innerHTML = createMarkup(data);
-        refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
-        refs.searchResField.style.color = '#818181';
-      });
-    }, 1000)
-
-    .catch(
-      error => console.dir(error)
-      //   Notiflix.Notify.failure("Error occured!")
-    );
-};
+}
+ 
 refs.formEl.addEventListener('submit', onSearchBtnClick);
 
 function noResults() {
@@ -104,13 +68,35 @@ async function loadMoreFilmsOnSearch(event) {
   
 };
 
-async function loadFirstPageOnSearch() {
+  async function loadFirstPageOnSearch() {
  
-  const response = await userFilms.onSearchFilm();
+    const response = await userFilms.onSearchFilm();
 
-  pagination.reset(response.total_results)
+    // console.log('onSearchFilm DATA', data);
+    setTimeout(() => {
+      cleanContainer();
+      clearWarning();
+      if (response.results.length === 0) {
+        // Notiflix.Notify.failure(
+        //   'Sorry, there are no videos matching your search query. Please try again.'
+        // );
 
-  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-  
+        refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
+        refs.searchResField.textContent = '';
+
+        refs.moviesList.innerHTML = noResults();
+        refs.pagination.innerHTML = ' ';
+
+        return;
+      }
+
+      refs.searchResField.textContent = `Hooray! We found ${response.total_results} results on request "${userFilms.userSearch}"!`;
+      refs.searchResField.style.color = '#818181';
+      
+refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
+    }, 1000)
+
+    pagination.reset(response.total_results)
 };
+
 

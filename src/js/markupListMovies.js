@@ -14,7 +14,6 @@ const moviesList = document.querySelector('.film__list');
 //     moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
 //   }
 // });
-import { getById } from "./api.js";
 async function getGenres() {
   try {
     const resGenres = await axios.get(

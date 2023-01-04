@@ -1,50 +1,44 @@
-import { getRefsLS } from './getRefsLS';
+import { getRefs } from '../refs';
 import { getFilmData } from './findAndAuditLS';
 import { loadDataFromLS, setDataToLS } from './localStorageData';
-import { changeBtnStyle } from './changeModalBtn';
+import { changeBtnStyle } from '../changeModalBtn';
 
-const refs = getRefsLS();
+const refs = getRefs();
+
+refs.divModal.addEventListener('click', function (e) {
+  if (e.target.classList.contains('modal-film__btn-watched')) {
+    const modalWatchedBtn = e.target;
+    console.log(modalWatchedBtn.dataset.id)
+    modalWatchedBtn.addEventListener('click', onAddToLS('watched', modalWatchedBtn, modalWatchedBtn.dataset.id));
+  } else if ((e.target.classList.contains('modal-film__btn-queque')) ) {
+    const modalQueueBtn = e.target;
+    console.log(modalQueueBtn.dataset.id)
+    modalQueueBtn.addEventListener('click', onAddToLS('queue', modalQueueBtn, modalQueueBtn.dataset.id));
+  }
+});
 
 localStorage.setItem('watched', '[]');
 localStorage.setItem('queue', '[]');
 
-refs.modalWatchedBtn.addEventListener('click', onAddToLS);
-refs.modalQueueBtn.addEventListener('click', onAddToLS);
-
-function getCurrentBase() {
-  if (refs.modalWatchedBtn.classList.contains('modal-film__btn-watched'))
-    return 'watched';
-  if (refs.modalQueueBtn.classList.contains('modal-film__btn-queque'))
-    return 'queue';
-}
-
-function onAddToLS(e) {
-  const targetBtn = e.target;
-  const localStorageKey =
-    targetBtn === refs.modalWatchedBtn ? 'watched' : 'queue';
-
-  // ТИМЧАСОВА КОНСТРУКЦІЯ ПОКИ НЕ ВІДОМО ЗВДКИ БРАТИ ID (БЕРУ РАНДОМНИЙ З ПРИДУМАНОГО МНОЮ МАСИВУ З 4-х карточок)
-  const getRandomId = [661374, 76600, 877269, 668482, 744594, 555604, 546554];
-  const randId = Math.floor(Math.random() * getRandomId.length);
-
-  const filmId = getRandomId[randId]; // id фільму, який хоче додати або видалити користувач з Local Storage
-  const currentDataArray = loadDataFromLS(localStorageKey);
+export function onAddToLS(key, targetBtn, id) {
+  const filmId = Number(id); 
+  const currentDataArray = loadDataFromLS(key);
   if (currentDataArray.find(film => film.id === Number(filmId)) !== undefined) {
     removeMovieFromLocalStorage(
-      localStorageKey,
-      getFilmData(filmId, getCurrentBase())
+      key,
+      getFilmData(filmId, key)
     );
     isAdded = false;
 
-    changeBtnStyle(targetBtn, localStorageKey);
+    changeBtnStyle(targetBtn, key);
   } else {
     addMovieToLocalStorage(
-      localStorageKey,
-      getFilmData(filmId, getCurrentBase())
+      key,
+      getFilmData(filmId, key)
     );
     isAdded = true;
 
-    changeBtnStyle(targetBtn, localStorageKey);
+    changeBtnStyle(targetBtn, key);
   }
 }
 
@@ -81,10 +75,3 @@ const addMovieToLocalStorage = async (localStorageKey, newFilm) => {
     }
   });
 };
-
-/*
-<div class="modal-film__buttons">
-    <button type="button" class="modal-film__btn-watched current">add to Watched</button>
-    <button type="button" class="modal-film__btn-queque current">add to queue</button>
-</div>
-*/

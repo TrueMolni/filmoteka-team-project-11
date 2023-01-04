@@ -31,7 +31,7 @@ export function renderMovieModal({
     descr = 'No description';
   }
 
-  const markup = `<div class="information" data-id="${id}">
+  const markup = `<div class="information">
   <img src="${imgPath}" alt="Movie poster"/>
     <div class="movie-details">
       <h3 class="movie-details__heading">${title}</h3>
@@ -60,8 +60,8 @@ export function renderMovieModal({
       <p class="about__text">About</p>
       <p class="about__descr">${overview}</p>
       <div class="button-wrapper">
-      <button class="btton modal-film__btn-watched" type="button">Add to watched</button>
-      <button class="btton modal-film__btn-queque" type="button">Add to queue</button>
+      <button class="btton modal-film__btn-watched" data-id="${id}" type="button">Add to watched</button>
+      <button class="btton modal-film__btn-queque" data-id="${id}" type="button">Add to queue</button>
     </div>
   </div>
 </div>`;

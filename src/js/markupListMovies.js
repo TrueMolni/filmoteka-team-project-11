@@ -30,8 +30,9 @@ async function renderGernes() {
   if (localStorage.getItem('genres') === null) {
     await getGenres().then(({ genres }) => {
       localStorage.setItem('genres', JSON.stringify(genres));
-    });
+     return renderGernes});
   }
+
 }
 
 function getGenreById(genreId, genresArray) {
@@ -40,7 +41,6 @@ function getGenreById(genreId, genresArray) {
 }
 
 function createMarkup(res) {
-  console.log(res);
   if (res.results.length >= 1) {
     const markup = res.results
       .map(
@@ -83,7 +83,7 @@ function createMarkup(res) {
             <div class="item__text">
               <h2 class="item__capt">${title}</h2>
               <div class="item__wrap">
-                <p class="item__genre">${genres}</p>
+                <p class="item__genre">${genresMarkup}</p>
                 <p class="item__rating">${voteAverage}</p>
                 <p class="item__genre">${relDate}</p>
               </div>

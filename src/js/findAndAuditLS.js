@@ -27,6 +27,9 @@ function findCardItem (targetCardId) {
 }
 
 function findAndAdd (currentArray, targetCardId) {
+    if (currentArray === null) {
+        currentArray = [];
+    }
     let cardItem;
     currentArray.forEach(item => {
         if (item.id === Number(targetCardId)) {

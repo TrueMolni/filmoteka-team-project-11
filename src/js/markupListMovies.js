@@ -22,24 +22,25 @@ function getGenreById(genreId, genresArray) {
 }
 
 function createMarkup(res) {
+  console.log(res);
   if (res.results.length >= 1) {
     const markup = res.results
       .map(
         ({ id, title, poster_path, genre_ids, release_date, vote_average }) => {
           //
-          const genresList = JSON.parse(localStorage.getItem('genres'));
-          let genres = genre_ids.map(item => {
-          return getGenreById(item, genresList);
-          })
+          // const genresList = JSON.parse(localStorage.getItem('genres'));
+          // let genres = genre_ids.map(item => {
+          // return getGenreById(item, genresList);
+          // })
 
-          let genresMarkup = '';
-          if (genres.length === 0) {
-           genresMarkup = 'No genres';
-          } else if (genres.length < 3) {
-           genresMarkup = genres.join(',&nbsp;');
-          } else {
-           genresMarkup = `${genres[0]}, ${genres[1]}, Others`;
-          }
+          // let genresMarkup = '';
+          // if (genres.length === 0) {
+          //  genresMarkup = 'No genres';
+          // } else if (genres.length < 3) {
+          //  genresMarkup = genres.join(',&nbsp;');
+          // } else {
+          //  genresMarkup = `${genres[0]}, ${genres[1]}, Others`;
+          // }
 
           // check for poster
           let poster = '';
@@ -59,12 +60,12 @@ function createMarkup(res) {
 
           let voteAverage = vote_average.toFixed(1);
 
-          return `<li class="gallery__item film-card" data-modal-open>
+          return `<li class="gallery__item film-card" data-modal-open data-id="${id}">
             <img src="${srcImgBase}${poster}" alt="${title}" class="img" id="${id}" />
             <div class="item__text">
               <h2 class="item__capt">${title}</h2>
               <div class="item__wrap">
-                <p class="item__genre">${genresMarkup}</p>
+                <p class="item__genre">${genre_ids}</p>
                 <p class="item__rating">${voteAverage}</p>
                 <p class="item__genre">${relDate}</p>
               </div>

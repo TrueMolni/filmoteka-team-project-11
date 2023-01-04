@@ -1,5 +1,5 @@
 import {loadDataFromLS} from './localStorageData';
-import {getRefs} from '../refs';
+import {getRefs} from './refs';
 
 const refs = getRefs();
 if (refs.myLibrary.classList.contains('my-library')) {

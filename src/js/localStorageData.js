@@ -1,7 +1,7 @@
 export function loadDataFromLS (localStorageKey) {
     try {
         let string = localStorage.getItem(localStorageKey);
-        if (string === null) {
+        if (!string) {
         string = '[]';
         }
         const data = JSON.parse(string);

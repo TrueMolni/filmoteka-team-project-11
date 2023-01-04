@@ -4,12 +4,14 @@ const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 let currentPage = 1;
 const moviesList = document.querySelector('.film__list');
 
-getTrending(currentPage).then(res => {
-  const headerCheck = document.querySelector('.side-nav__link');
-  if (headerCheck.classList.contains('home')) {
-    moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
-  }
-});
+// Видаляю,бо додаю даний виклик в пагінацію-метод loadFirstPag():
+
+// getTrending(currentPage).then(res => {
+//   const headerCheck = document.querySelector('.side-nav__link');
+//   if (headerCheck.classList.contains('home')) {
+//     moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
+//   }
+// });
 
 async function getGenres() {
   try {

@@ -8,7 +8,7 @@ import { getTrending } from './js/api';
 //import { getById } from './js/getById';
 import { getById } from './js/api';
 import { createMarkup } from './js/markupListMovies.js';
-// import './js/localStoragе';
+import './js/localStoragе';
 import './js/themes';
 import './js/searchByKeyWord';
 import './js/modalOurTeam';

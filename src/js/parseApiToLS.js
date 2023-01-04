@@ -1,14 +1,14 @@
-const trimYear = (fullDate) => {
+function trimYear (fullDate) {
     if (!fullDate) return ''
     return fullDate.slice(0, 4);
 }
 
-const roundedVoteAverage = function(voteAverage){
+function roundedVoteAverage (voteAverage){
     return voteAverage.toFixed(1)
     // return Math.round(parseFloat(voteAverage) * 100) / 100;
 }
 
-const getGenres = (genres) => {
+function getGenres (genres) {
     let genresArr = genres.map(genres => genres.name);
     if(genresArr.length > 3) {
         array = genresArr.slice(0,2);
@@ -18,9 +18,7 @@ const getGenres = (genres) => {
     return genresArr.join(', ');
 }
 
-
-
-export const parseOneFilm = (film) => {
+export function parseOneFilm (film) {
     return {
         id: film.id,
         poster_path: film.poster_path,

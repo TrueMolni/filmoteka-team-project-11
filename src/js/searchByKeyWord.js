@@ -2,11 +2,11 @@ import Notiflix from 'notiflix';
 import { srcImgBase } from './markupListMovies';
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
-const userFilms = new ApiServise();
-import Pagination from 'tui-pagination';
-import {options} from "./pagination"
-import {cleanContainer} from './pagination';
 
+import Pagination from 'tui-pagination';
+import { options } from './pagination';
+import { cleanContainer } from './pagination';
+const userFilms = new ApiServise();
 
 const refs = {
   inputEl: document.querySelector('.search-field'),
@@ -57,10 +57,10 @@ const onSearchBtnClick = event => {
 
         // clearInput();
 
-// Додаю виклик за ключовим словом через пагінацію:
-        loadFirstPageOnSearch()
-// Відповідно видаляю рендер першої сторінки тут:
-// refs.moviesList.innerHTML = createMarkup(data);
+        // Додаю виклик за ключовим словом через пагінацію:
+        loadFirstPageOnSearch();
+        // Відповідно видаляю рендер першої сторінки тут:
+        // refs.moviesList.innerHTML = createMarkup(data);
         refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
         refs.searchResField.style.color = '#818181';
       });
@@ -85,32 +85,26 @@ function clearWarning() {
   refs.warningField.innerHTML = '';
 }
 
-
 // Додаю пагінацію на решту сторінок, крім першої:
 
 pagination.on('afterMove', loadMoreFilmsOnSearch);
 
 async function loadMoreFilmsOnSearch(event) {
+  cleanContainer();
 
- cleanContainer();
- 
- userFilms.page=event.page; 
- 
+  userFilms.page = event.page;
+
   const response = await userFilms.onSearchFilm();
 
-  pagination.setTotalItems(response.total_results)
+  pagination.setTotalItems(response.total_results);
 
-  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-  
-};
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response));
+}
 
 async function loadFirstPageOnSearch() {
- 
   const response = await userFilms.onSearchFilm();
 
-  pagination.reset(response.total_results)
+  pagination.reset(response.total_results);
 
-  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
-  
-};
-
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response));
+}

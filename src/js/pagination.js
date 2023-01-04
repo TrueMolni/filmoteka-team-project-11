@@ -6,8 +6,6 @@ import { getTrending } from './api';
 const containerPagination = document.getElementById('tui-pagination-container');
 const filmList = document.querySelector(".film__list");
 
-let total = 120;
-
 
 const apiServise = new ApiServise;
 
@@ -49,11 +47,7 @@ async function loadMoreFilms(event) {
 
   const response = await apiServise.getTrendingFilm();
 
-  total = response.total_results;
-
-  console.log(total)
-
- pagination.setTotalItems(total);
+ pagination.setTotalItems(response.total_results);
 
   filmList.insertAdjacentHTML('beforeend', createMarkup(response))
 
@@ -68,7 +62,7 @@ async function loadFirstPage() {
 
   const response = await apiServise.getTrendingFilm();
 
-  pagination.reset(response.total_results)
+  pagination.reset(response.total_results);
 
   const headerCheck = document.querySelector('.side-nav__link');
 

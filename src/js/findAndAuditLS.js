@@ -1,7 +1,7 @@
-import {getById} from '../api';
+import {getById} from './api';
 import {parseOneFilm} from './parseApiToLS';
 
-export const getFilmData = function (targetCardId, base) {
+export function getFilmData (targetCardId, base) {
     try {
         localStorageArray = JSON.parse(localStorage.getItem(base));
     } catch (err) {

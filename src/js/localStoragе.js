@@ -1,7 +1,7 @@
-import { getRefs } from '../refs';
+import { getRefs } from './refs';
 import { getFilmData } from './findAndAuditLS';
 import { loadDataFromLS, setDataToLS } from './localStorageData';
-import { changeBtnStyle } from '../changeModalBtn';
+import { changeBtnStyle } from './changeModalBtn';
 
 const refs = getRefs();
 
@@ -16,9 +16,6 @@ refs.divModal.addEventListener('click', function (e) {
     modalQueueBtn.addEventListener('click', onAddToLS('queue', modalQueueBtn, modalQueueBtn.dataset.id));
   }
 });
-
-localStorage.setItem('watched', '[]');
-localStorage.setItem('queue', '[]');
 
 export function onAddToLS(key, targetBtn, id) {
   const filmId = Number(id); 
@@ -41,8 +38,7 @@ export function onAddToLS(key, targetBtn, id) {
     changeBtnStyle(targetBtn, key);
   }
 }
-
-const removeMovieFromLocalStorage = async (localStorageKey, newFilm) => {
+async function removeMovieFromLocalStorage (localStorageKey, newFilm) {
   await newFilm.then(newFilm => {
     try {
       const currentDataArray = loadDataFromLS(localStorageKey);
@@ -59,7 +55,7 @@ const removeMovieFromLocalStorage = async (localStorageKey, newFilm) => {
   });
 };
 
-const addMovieToLocalStorage = async (localStorageKey, newFilm) => {
+async function addMovieToLocalStorage (localStorageKey, newFilm) {
   await newFilm.then(newFilm => {
     try {
       const currentDataArray = loadDataFromLS(localStorageKey);

@@ -1,4 +1,4 @@
-import {getById} from '../getById';
+import {getById} from '../api';
 import {parseOneFilm} from './parseApiToLS';
 
 export const getFilmData = function (targetCardId, base) {
@@ -12,7 +12,7 @@ export const getFilmData = function (targetCardId, base) {
         isAdded = true;
         return cardItem;
     }
-    return findCardItem(targetCardId).then(cardItem => {     
+    return findCardItem(targetCardId).then(cardItem => {
         return cardItem;
     });
 }

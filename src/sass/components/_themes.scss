@@ -1,5 +1,6 @@
 //! Прив'язуюь до контейнера Хедера
-.header-bg {
+.header-bg,
+.header-bg-library {
   position: relative;
 }
 
@@ -41,29 +42,8 @@
     right: 20px;
     top: 185px;
   }
-
-  // right: 370px;
-  // top: 185px;
-
-  //! Це відстань позиціонування всередині хедера
 }
-
-// .header__themes-icon.sun {
-//   margin-right: 10px;
-// }
-
-// .light-theme {
-//   color: #000000;
-// }
-// .dark-theme {
-//   color: #ffffff;
-// }
 
 .hidden-icon {
   visibility: hidden;
 }
-
-//! Цей код перенести в файл _header.scss
-// .header-bg .container {
-//   position: relative;
-// }

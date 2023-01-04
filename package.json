@@ -5,7 +5,7 @@
   "homepage": "https://TrueMolni.github.io/filmoteka-team-project-11",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url --no-scope-hoist /filmoteka-team-project-11/"
+    "build": "parcel build src/*.html --public-url /filmoteka-team-project-11/"
   },
   "repository": {
     "type": "git",

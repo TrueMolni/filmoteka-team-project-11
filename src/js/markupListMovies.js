@@ -1,4 +1,5 @@
-import { getTrending } from './getTrending.js';
+import { getTrending } from "./api.js";
+//import { getTrending } from './getTrending.js';
 
 const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 let currentPage = 1;

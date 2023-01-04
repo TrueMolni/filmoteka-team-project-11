@@ -2,13 +2,13 @@ import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import ApiServise from '../js/api'
 import { createMarkup } from './markupListMovies';
-import { getTrending } from './getTrending.js';
+import { getTrending } from './api';
 
 const container = document.getElementById('tui-pagination-container');
 const filmList = document.querySelector(".film__list");
 
 let total = 120;
-  
+
 
 const apiServise = new ApiServise;
 
@@ -45,19 +45,19 @@ pagination.on('afterMove', loadMoreFilms);
 async function loadMoreFilms(event) {
 
   cleanContainer();
- 
-  apiServise.page=event.page; 
- 
+
+  apiServise.page=event.page;
+
   const response = await apiServise.getTrendingFilm();
 
   total = response.total_results;
 
   console.log(total)
-  
+
  pagination.setTotalItems(total);
-  
+
   filmList.insertAdjacentHTML('beforeend', createMarkup(response))
-  
+
 };
 
 function cleanContainer(){

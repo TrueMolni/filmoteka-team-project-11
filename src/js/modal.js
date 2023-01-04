@@ -1,5 +1,5 @@
 import { renderMovieModal } from './renderMovieModal.js';
-import { getById } from './getById';
+import { getById } from './api';
 
 const filmGallery = document.querySelector('.film__list');
 const backdrop = document.querySelector('.backdrop');

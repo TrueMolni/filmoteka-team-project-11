@@ -91,3 +91,24 @@ const userFilms = new ApiServise();
 export { userFilms };
 
 
+//for markUpListMovies and pagination
+export async function getTrending(currentPage) {
+  try {
+    const resTrending = await axios.get(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${currentPage}`
+    );
+    return await resTrending.data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+export function getById(movieId) {
+  return axios
+    .get(`/${movieId}`, {
+      baseURL: 'https://api.themoviedb.org/3/movie',
+      params: { api_key: API_KEY },
+    })
+    .then(response => response.data);
+}

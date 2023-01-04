@@ -2,6 +2,8 @@
   margin-top: 20px;
   margin-bottom: 40px;
   padding-top: 10px;
+  //display: flex;
+   // flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 60px;
@@ -17,6 +19,7 @@
 }
 
 .gallery__item {
+
   margin-top: 20px;
 
   @media screen and (min-width: 768px) {
@@ -33,13 +36,14 @@
 
 .img {
   display: block;
-  min-width: 100%; //! max змінив на min
+  min-width: 280px; //! max змінив на min
   height: 398px;
   border-radius: 5px;
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
-    height: 455px;
+    height: 488px;
+    min-width: 100%;
   }
 
   @media screen and (min-width: 1200px) {
@@ -52,12 +56,14 @@
 }
 
 .item__capt {
+
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
   text-transform: uppercase;
+
 
   @media screen and (min-width: 1200px) {
     font-size: 20px;
@@ -67,9 +73,10 @@
 
 .item__wrap {
   position: relative; //!
-
+min-width: 280px;
   display: flex;
   justify-content: space-between; //!
+
 }
 
 .item__genre {

@@ -67,7 +67,7 @@ async function loadFirstPageOnSearch() {
       refs.pagination.innerHTML = ' ';
       return;
     }
-    refs.searchResField.textContent = `Hooray! We found ${response.total_results} results on request "${userFilms.userSearch}"!`;
+    // refs.searchResField.textContent = `We found ${response.total_results} results on request "${userFilms.userSearch}"!`;
     refs.searchResField.style.color = '#818181';
 
     refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response));

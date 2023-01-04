@@ -5,16 +5,6 @@ const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 let currentPage = 1;
 const moviesList = document.querySelector('.film__list');
 
-// Видаляю,бо додаю даний виклик в пагінацію-метод loadFirstPag():
-
-// getTrending(currentPage).then(res => {
-//   const headerCheck = document.querySelector('.side-nav__link');
-//   if (headerCheck.classList.contains('home')) {
-//     moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
-//   }
-// });
-
-
 
 function getGenreById(genreId, genresArray) {
   const genres = genresArray.find(option => option.id === genreId);
@@ -28,10 +18,13 @@ function createMarkup(res) {
       .map(
         ({ id, title, poster_path, genre_ids, release_date, vote_average }) => {
           //
+
+
           // const genresList = JSON.parse(localStorage.getItem('genres'));
           // let genres = genre_ids.map(item => {
           // return getGenreById(item, genresList);
           // })
+
 
           // let genresMarkup = '';
           // if (genres.length === 0) {

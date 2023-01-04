@@ -24,6 +24,7 @@ function onDarkTheme() {
   refs.iconSun.classList.remove('hidden-icon');
   refs.iconMoon.classList.add('hidden-icon');
 
+
   localStorage.setItem('themes', JSON.stringify('DarkTheme'));
 }
 

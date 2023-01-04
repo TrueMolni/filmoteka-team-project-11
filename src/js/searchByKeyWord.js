@@ -1,5 +1,5 @@
-import Notiflix from 'notiflix';
-import { srcImgBase } from './markupListMovies';
+// import Notiflix from 'notiflix';
+// import { srcImgBase } from './markupListMovies';
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();

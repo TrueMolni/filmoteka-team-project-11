@@ -1,10 +1,9 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 import ApiServise from '../js/api'
 import { createMarkup } from './markupListMovies';
 import { getTrending } from './api';
 
-const container = document.getElementById('tui-pagination-container');
+const containerPagination = document.getElementById('tui-pagination-container');
 const filmList = document.querySelector(".film__list");
 
 let total = 120;
@@ -12,16 +11,16 @@ let total = 120;
 
 const apiServise = new ApiServise;
 
-const options = {
+export const options = {
   page:1,
   itemsPerPage: 20,
-  totalItems: total,
+  totalItems: 0,
   visiblePages: 5,
   centerAlign: true,
   usageStatistics: false,
   template: {
     page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage: '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
+      currentPage: '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
     moveButton:
       '<a href="#" class="tui-page-btn tui-{{type}}">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
@@ -38,7 +37,7 @@ const options = {
 };
 
 
-const pagination = new Pagination(container, options);
+const pagination = new Pagination(containerPagination, options);
 
 pagination.on('afterMove', loadMoreFilms);
 
@@ -60,8 +59,24 @@ async function loadMoreFilms(event) {
 
 };
 
-function cleanContainer(){
+export function cleanContainer(){
   filmList.innerHTML = '';
 };
 
-pagination.movePageTo(1);
+
+async function loadFirstPage() {
+
+  const response = await apiServise.getTrendingFilm();
+
+  pagination.reset(response.total_results)
+
+  const headerCheck = document.querySelector('.side-nav__link');
+
+  if (headerCheck.classList.contains('home')) {
+    filmList.insertAdjacentHTML('beforeend', createMarkup(response))
+  }
+};
+
+loadFirstPage()
+
+

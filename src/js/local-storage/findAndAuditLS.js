@@ -2,7 +2,11 @@ import {getById} from '../getById';
 import {parseOneFilm} from './parseApiToLS';
 
 export const getFilmData = function (targetCardId, base) {
-    localStorageArray = JSON.parse(localStorage.getItem(base));
+    try {
+        localStorageArray = JSON.parse(localStorage.getItem(base));
+    } catch (err) {
+        console.error('Get LocslStorage error: ', err);
+    }
         cardItem = findAndAdd(localStorageArray, targetCardId);
     if (cardItem) {
         isAdded = true;

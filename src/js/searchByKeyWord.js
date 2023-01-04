@@ -1,8 +1,12 @@
-// import Notiflix from 'notiflix';
-
+import Notiflix from 'notiflix';
+import { srcImgBase } from './markupListMovies';
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
+import Pagination from 'tui-pagination';
+import {options} from "./pagination"
+import {cleanContainer} from './pagination';
+
 
 const refs = {
   inputEl: document.querySelector('.search-field'),
@@ -13,6 +17,8 @@ const refs = {
   searchResField: document.querySelector('.js-search-results'),
   warningField: document.querySelector('.js-warning'),
 };
+
+const pagination = new Pagination(refs.pagination, options);
 
 const onSearchBtnClick = event => {
   //   console.log('click');
@@ -33,7 +39,7 @@ const onSearchBtnClick = event => {
     .then(data => {
       // console.log('onSearchFilm DATA', data);
       setTimeout(() => {
-        clearRender();
+        cleanContainer();
         clearWarning();
         if (data.results.length === 0) {
           // Notiflix.Notify.failure(
@@ -49,26 +55,20 @@ const onSearchBtnClick = event => {
           return;
         }
 
-        clearInput();
+        // clearInput();
 
-        refs.moviesList.innerHTML = createMarkup(data);
-        refs.searchResField.textContent = ` We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
+// Додаю виклик за ключовим словом через пагінацію:
+        loadFirstPageOnSearch()
+// Відповідно видаляю рендер першої сторінки тут:
+// refs.moviesList.innerHTML = createMarkup(data);
+        refs.searchResField.textContent = `Hooray! We found ${data.total_results} results on request "${userFilms.userSearch}"!`;
         refs.searchResField.style.color = '#818181';
-        
       });
     }, 1000)
 
     .catch(
       error => console.dir(error)
       //   Notiflix.Notify.failure("Error occured!")
-  )
-    .finally(
-      
-      setTimeout(() => {
-        console.log('remove message')
-        refs.searchResField.textContent = ' ';
-        clearWarning()
-      }, 4000)
     );
 };
 refs.formEl.addEventListener('submit', onSearchBtnClick);
@@ -80,10 +80,37 @@ function noResults() {
 function clearInput() {
   refs.inputEl.value = '';
 }
-function clearRender() {
-  refs.moviesList.innerHTML = '';
-}
 
 function clearWarning() {
-  refs.warningField.textContent = '';
+  refs.warningField.innerHTML = '';
 }
+
+
+// Додаю пагінацію на решту сторінок, крім першої:
+
+pagination.on('afterMove', loadMoreFilmsOnSearch);
+
+async function loadMoreFilmsOnSearch(event) {
+
+ cleanContainer();
+ 
+ userFilms.page=event.page; 
+ 
+  const response = await userFilms.onSearchFilm();
+
+  pagination.setTotalItems(response.total_results)
+
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
+  
+};
+
+async function loadFirstPageOnSearch() {
+ 
+  const response = await userFilms.onSearchFilm();
+
+  pagination.reset(response.total_results)
+
+  refs.moviesList.insertAdjacentHTML('beforeend', createMarkup(response))
+  
+};
+

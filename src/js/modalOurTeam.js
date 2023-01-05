@@ -1,16 +1,11 @@
-const refs = {
-  openModalOurTeam: document.querySelector("[data-open-modal_our-team]"),
-  closeModalOurTeam: document.querySelector("[data-close-modal_our-team]"),
-  modalOurTeam: document.querySelector("[data-modal_our-team]"),  
-    
-  socialIcons: document.querySelectorAll('.social-icons'),
-  listEmployeItem: document.querySelectorAll('.list-employees-item'),
-  titleModalOurTeam: document.querySelector('.title_modal_our-team'),
-  iconClose: document.querySelector('.icon-close'),
-  modalTeam: document.querySelector('.modal_our-team'),
-  socialIconsDisabled: document.querySelectorAll('.social-icons__disabled'),
+// import { setLightThemModalOurTeam, setDarkThemModalOurTeam } from './modalOurTeam';
+// import { getRefs } from './refs';
+// const refs = getRefs();
 
-};
+import { getRefs } from './refs';
+
+const refs = getRefs();
+
 
 refs.openModalOurTeam.addEventListener("click", openModalOurTeam);
 
@@ -39,7 +34,7 @@ function addEventListeners() {
   refs.closeModalOurTeam.addEventListener('click', closeModal);
 }
 
-function chengeDarkThemModalOurTeam({socialIcons, listEmployeItem, titleModalOurTeam, iconClose,modalOurTeam, socialIconsDisabled }) {
+ export function setDarkThemModalOurTeam({socialIcons, listEmployeItem, titleModalOurTeam, iconClose,modalTeam, socialIconsDisabled }) {
   socialIcons.forEach(element => element.classList.add('social-icons__themDark'));
   socialIconsDisabled.forEach(element => element.classList.add('social-icons__disabled--themDark'));
   listEmployeItem.forEach(element => element.classList.add('list-employees-item__themDark'));
@@ -51,7 +46,7 @@ function chengeDarkThemModalOurTeam({socialIcons, listEmployeItem, titleModalOur
 
 
 
-function chengeLightThemModalOurTeam({ socialIcons, listEmployeItem, titleModalOurTeam, iconClose, modalOurTeam, socialIconsDisabled }) {
+export function setLightThemModalOurTeam({ socialIcons, listEmployeItem, titleModalOurTeam, iconClose, modalTeam, socialIconsDisabled }) {
   socialIcons.forEach(element => element.classList.remove('social-icons__themDark'));
   socialIconsDisabled.forEach(element => element.classList.remove('social-icons__disabled--themDark'));
   listEmployeItem.forEach(element => element.classList.remove('list-employees-item__themDark'));

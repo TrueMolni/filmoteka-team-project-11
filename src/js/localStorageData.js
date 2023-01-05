@@ -1,7 +1,7 @@
-export const loadDataFromLS = localStorageKey => {
+export function loadDataFromLS (localStorageKey) {
     try {
         let string = localStorage.getItem(localStorageKey);
-        if (string === null) {
+        if (!string) {
         string = '[]';
         }
         const data = JSON.parse(string);
@@ -15,7 +15,7 @@ export const loadDataFromLS = localStorageKey => {
     }
 };
 
-export const setDataToLS = (localStorageKey, object) => {
+export function setDataToLS (localStorageKey, object) {
     try {
         if (Array.isArray(object)) {
         const string = JSON.stringify(object);

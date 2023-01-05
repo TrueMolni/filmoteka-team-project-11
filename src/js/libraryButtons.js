@@ -1,17 +1,15 @@
 import {loadDataFromLS} from './localStorageData';
-import {getRefsLS} from './getRefsLS';
+import {getRefs} from './refs';
 
-const refs = getRefsLS();
+const refs = getRefs();
 if (refs.myLibrary.classList.contains('my-library')) {
     showPageMyLibrary('watched');
-    showPageMyLibrary('queue');
     refs.watchedBtn.addEventListener('click', onWatchedButtonClick);
     refs.queueBtn.addEventListener('click', onQueueButtonClick);
 }
 
 function onWatchedButtonClick (e) {
     e.preventDefault;
-    console.log('ok')
     showPageMyLibrary('watched');
 }
 

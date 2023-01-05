@@ -1,14 +1,18 @@
-import {getById} from '../getById';
+import {getById} from './api';
 import {parseOneFilm} from './parseApiToLS';
 
-export const getFilmData = function (targetCardId, base) {
-    localStorageArray = JSON.parse(localStorage.getItem(base));
+export function getFilmData (targetCardId, base) {
+    try {
+        localStorageArray = JSON.parse(localStorage.getItem(base));
+    } catch (err) {
+        console.error('Get LocslStorage error: ', err);
+    }
         cardItem = findAndAdd(localStorageArray, targetCardId);
     if (cardItem) {
         isAdded = true;
         return cardItem;
     }
-    return findCardItem(targetCardId).then(cardItem => {     
+    return findCardItem(targetCardId).then(cardItem => {
         return cardItem;
     });
 }
@@ -23,6 +27,9 @@ function findCardItem (targetCardId) {
 }
 
 function findAndAdd (currentArray, targetCardId) {
+    if (currentArray === null) {
+        currentArray = [];
+    }
     let cardItem;
     currentArray.forEach(item => {
         if (item.id === Number(targetCardId)) {

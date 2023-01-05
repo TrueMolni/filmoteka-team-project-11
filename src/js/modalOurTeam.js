@@ -11,6 +11,7 @@ refs.openModalOurTeam.addEventListener("click", openModalOurTeam);
 
 function openModalOurTeam() {
   refs.modalOurTeam.classList.remove('is-hidden'); 
+  document.body.style.overflow = 'hidden'
   addEventListeners();
 }
 
@@ -18,6 +19,7 @@ function closeModal(event) {
   if (event.target.classList.contains('backdropp') || event.key === "Escape"
     || event.currentTarget.classList.contains('button-close-modal')) {
     refs.modalOurTeam.classList.add('is-hidden');
+    document.body.style.overflow = 'visible'
     removeEventListeners();
   }
 }

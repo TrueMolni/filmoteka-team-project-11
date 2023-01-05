@@ -7,8 +7,8 @@ export const getRefs = () => {
     galleryItems: document.querySelector('.film__list'),
     myLibrary: document.querySelector('#my-library'),
     divModal: document.querySelector('.modal'),
-    filmGallery: document.querySelector('.film__list'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
+    information: document.querySelector('.information'),
   };
 };

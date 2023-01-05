@@ -1,20 +1,18 @@
 import { renderMovieModal } from './renderMovieModal.js';
 import { getById } from './api';
 import { getRefs } from './refs';
-const { filmGallery, backdrop, closeButton } = getRefs();
+const { galleryItems, backdrop, closeButton } = getRefs();
 
-filmGallery.addEventListener('click', onModalWindowOpen);
+galleryItems.addEventListener('click', onModalWindowOpen);
 closeButton.addEventListener('click', onModalWindowClose);
 backdrop.addEventListener('click', onBackdropClick);
 
 function onModalWindowOpen(e) {
-  const value = Object(e.target);
-  e.preventDefault();
   if (!e.target.closest('li')) {
     return;
   } else if (e.target.closest('li')) {
     const movieId = e.target.closest('li').dataset.id;
-    const information = document.querySelector('.information');
+    const { information } = getRefs();
     if (information) {
       information.remove();
     }

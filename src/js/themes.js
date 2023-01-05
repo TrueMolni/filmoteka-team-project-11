@@ -5,15 +5,15 @@ import {
   setDarkThemModalOurTeam,
 } from './modalOurTeam';
 
-const refs555 = getRefs();
+const refs = getRefs();
 
-const refs = {
-  iconSun: document.querySelector('[data-action="light"]'),
-  iconMoon: document.querySelector('[data-action="dark"]'),
-  footerContainer: document.querySelector('.footer'),
-  footerText: document.querySelector('.footer__descr'),
-  footerBtn: document.querySelector('.footer__btn'),
-};
+// const refs = {
+//   iconSun: document.querySelector('[data-action="light"]'),
+//   iconMoon: document.querySelector('[data-action="dark"]'),
+//   footerContainer: document.querySelector('.footer'),
+//   footerText: document.querySelector('.footer__descr'),
+//   footerBtn: document.querySelector('.footer__btn'),
+// };
 
 refs.iconMoon.addEventListener('click', onDarkTheme);
 refs.iconSun.addEventListener('click', onLightTheme);
@@ -22,7 +22,7 @@ setDefaultTheme();
 
 function onDarkTheme() {
   localStorage.setItem('themes', JSON.stringify('DarkTheme'));
-  setDarkThemModalOurTeam(refs555);
+  setDarkThemModalOurTeam(refs);
 
   document.body.classList.toggle('dark-theme');
   refs.footerContainer.classList.toggle('footer__dark-theme');
@@ -38,7 +38,7 @@ function onDarkTheme() {
 
 function onLightTheme() {
   localStorage.setItem('themes', JSON.stringify('LightTheme'));
-  setLightThemModalOurTeam(refs555);
+  setLightThemModalOurTeam(refs);
 
   document.body.classList.toggle('dark-theme');
   refs.footerContainer.classList.toggle('footer__dark-theme');
@@ -57,7 +57,7 @@ function setDefaultTheme() {
   const getlocalStorage = JSON.parse(localStorage.getItem('themes'));
 
   if (getlocalStorage === 'DarkTheme') {
-    // setDarkThemModalOurTeam(refs555);
+    setDarkThemModalOurTeam(refs);
 
     document.body.classList.toggle('dark-theme');
     refs.footerContainer.classList.toggle('footer__dark-theme');

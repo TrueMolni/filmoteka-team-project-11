@@ -10,5 +10,10 @@ export const getRefs = () => {
     filmGallery: document.querySelector('.film__list'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
+    iconSun: document.querySelector('[data-action="light"]'),
+    iconMoon: document.querySelector('[data-action="dark"]'),
+    footerContainer: document.querySelector('.footer'),
+    footerText: document.querySelector('.footer__descr'),
+    footerBtn: document.querySelector('.footer__btn'),
   };
 };

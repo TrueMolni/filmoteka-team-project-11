@@ -50,11 +50,20 @@
   background-color: inherit;
 }
 
+.footer__copyright {
+  text-align: center;
+
+  max-width: 250px;
+
+  @include mq(tablet) {
+    max-width: 100%;
+
 @keyframes heartbeat {
   0% {
     scale: 0.9;
   }
   50% {
     scale: 1.1;
+
   }
 }

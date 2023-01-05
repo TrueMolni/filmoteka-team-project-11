@@ -18,10 +18,19 @@ function getGenres (genres) {
     return genresArr.join(', ');
 }
 
+function getPoster(posterPath) {
+    if(posterPath === null) {
+        console.log(null)
+        return '/uc4RAVW1T3T29h6OQdr7zu4Blui.jpg'
+    }
+    return posterPath
+}
+
+
 export function parseOneFilm (film) {
     return {
         id: film.id,
-        poster_path: film.poster_path,
+        poster_path: getPoster(film.poster_path),
         title: film.title,
         original_title: film.original_title,
         vote_average: roundedVoteAverage(film.vote_average),

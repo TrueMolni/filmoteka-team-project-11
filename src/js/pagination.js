@@ -1,14 +1,9 @@
-import Pagination from 'tui-pagination';
+import Pagination from './tui-pagination';
 import ApiServise from '../js/api'
 import { createMarkup } from './markupListMovies';
-import { getTrending } from './api';
+import { getRefs } from './refs';
 
-const containerPagination = document.getElementById('tui-pagination-container');
-const filmList = document.querySelector(".film__list");
-
-let total = 120;
-
-
+const refs = getRefs();
 const apiServise = new ApiServise;
 
 export const options = {
@@ -37,7 +32,7 @@ export const options = {
 };
 
 
-const pagination = new Pagination(containerPagination, options);
+const pagination = new Pagination(refs.pagination, options);
 
 pagination.on('afterMove', loadMoreFilms);
 
@@ -49,18 +44,14 @@ async function loadMoreFilms(event) {
 
   const response = await apiServise.getTrendingFilm();
 
-  total = response.total_results;
+ pagination.setTotalItems(response.total_results);
 
-  console.log(total)
-
- pagination.setTotalItems(total);
-
-  filmList.insertAdjacentHTML('beforeend', createMarkup(response))
+ refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response))
 
 };
 
 export function cleanContainer(){
-  filmList.innerHTML = '';
+  refs.galleryItems.innerHTML = '';
 };
 
 
@@ -68,12 +59,12 @@ async function loadFirstPage() {
 
   const response = await apiServise.getTrendingFilm();
 
-  pagination.reset(response.total_results)
+  pagination.reset(response.total_results);
 
   const headerCheck = document.querySelector('.side-nav__link');
 
   if (headerCheck.classList.contains('home')) {
-    filmList.insertAdjacentHTML('beforeend', createMarkup(response))
+    refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response))
   }
 };
 

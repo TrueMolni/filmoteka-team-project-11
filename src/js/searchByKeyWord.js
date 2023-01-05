@@ -3,7 +3,7 @@
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
-import Pagination from './tui-pagination';
+import Pagination from 'tui-pagination';
 import { options } from './pagination';
 import { cleanContainer } from './pagination';
 const refs = {

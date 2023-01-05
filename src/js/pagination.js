@@ -1,4 +1,4 @@
-import Pagination from './tui-pagination';
+import Pagination from 'tui-pagination';
 import ApiServise from '../js/api'
 import { createMarkup } from './markupListMovies';
 import { getRefs } from './refs';

@@ -10,5 +10,16 @@ export const getRefs = () => {
     filmGallery: document.querySelector('.film__list'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
+
+    openModalOurTeam: document.querySelector("[data-open-modal_our-team]"),
+    closeModalOurTeam: document.querySelector("[data-close-modal_our-team]"),
+    modalOurTeam: document.querySelector("[data-modal_our-team]"),   
+    socialIcons: document.querySelectorAll('.social-icons'),
+    listEmployeItem: document.querySelectorAll('.list-employees-item'),
+    titleModalOurTeam: document.querySelector('.title_modal_our-team'),
+    iconClose: document.querySelector('.icon-close'),
+    modalTeam: document.querySelector('.modal_our-team'),
+    socialIconsDisabled: document.querySelectorAll('.social-icons__disabled')
+
   };
 };

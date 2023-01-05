@@ -46,12 +46,12 @@ async function loadMoreFilms(event) {
 
  pagination.setTotalItems(response.total_results);
 
- refs.filmGallery.insertAdjacentHTML('beforeend', createMarkup(response))
+ refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response))
 
 };
 
 export function cleanContainer(){
-  refs.filmGallery.innerHTML = '';
+  refs.galleryItems.innerHTML = '';
 };
 
 
@@ -64,7 +64,7 @@ async function loadFirstPage() {
   const headerCheck = document.querySelector('.side-nav__link');
 
   if (headerCheck.classList.contains('home')) {
-    refs.filmGallery.insertAdjacentHTML('beforeend', createMarkup(response))
+    refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response))
   }
 };
 

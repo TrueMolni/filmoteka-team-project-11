@@ -15,7 +15,7 @@
 
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url(../images/index-background-img/abstract-background-mobile.jpg);
-  background-color: #000;
+  background-color: var(--black-text-color);
 
   background-position: center;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 
   text-decoration: none;
 
-  color: #fff;
+  color: var(--white-text-color);
 
   cursor: pointer;
 }
@@ -90,12 +90,12 @@
     display: none;
   }
 
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: var(--main-font);
+  font-weight: var(--roboto-medium);
   font-size: 30px;
   line-height: 1.16;
 
-  color: #fff;
+  color: var(--white-text-color);
 }
 
 // side-nav
@@ -106,13 +106,13 @@
 
   margin-bottom: 40px;
 
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: var(--main-font);
+  font-weight: var(--roboto-medium);
   font-size: 12px;
   line-height: 1.17;
   text-transform: uppercase;
 
-  color: #fff;
+  color: var(--white-text-color);
 }
 
 .side-nav__item {
@@ -140,7 +140,7 @@
     height: 3px;
     width: 100%;
 
-    background-color: #ff001b;
+    background-color: var(--warning-color);
   }
 }
 
@@ -164,22 +164,22 @@
 
   background-color: transparent;
   border: transparent;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--white-text-color);
 
   font-family: 'Roboto', sans-serif;
 
-  color: #fff;
+  color: var(--white-text-color);
 
   &::placeholder {
-    color: #fff;
+    color: var(--white-text-color);
   }
 
   &:focus {
     outline: none;
-    border-bottom: 1px solid #ff6b08;
+    border-bottom: 1px solid var(--accent-color);
 
     &::placeholder {
-      color: #ff6b08;
+      color: var(--accent-color);
     }
   }
 }
@@ -202,12 +202,12 @@
   background-color: transparent;
   border: transparent;
 
-  color: #fff;
+  color: var(--white-text-color);
 
   //   @include transition(color);
 
   .search-field:focus ~ & {
-    color: #ff6b08;
+    color: var(--accent-color);
   }
 }
 
@@ -234,5 +234,5 @@
     text-align: center;
   }
 
-  color: #ff001b;
+  color: var(--warning-color);
 }

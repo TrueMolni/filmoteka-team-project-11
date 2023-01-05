@@ -7,10 +7,8 @@ export const getRefs = () => {
     galleryItems: document.querySelector('.film__list'),
     myLibrary: document.querySelector('#my-library'),
     divModal: document.querySelector('.modal'),
-    filmGallery: document.querySelector('.film__list'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
-
     openModalOurTeam: document.querySelector("[data-open-modal_our-team]"),
     closeModalOurTeam: document.querySelector("[data-close-modal_our-team]"),
     modalOurTeam: document.querySelector("[data-modal_our-team]"),   
@@ -19,7 +17,7 @@ export const getRefs = () => {
     titleModalOurTeam: document.querySelector('.title_modal_our-team'),
     iconClose: document.querySelector('.icon-close'),
     modalTeam: document.querySelector('.modal_our-team'),
-    socialIconsDisabled: document.querySelectorAll('.social-icons__disabled')
-
+    socialIconsDisabled: document.querySelectorAll('.social-icons__disabled'),
+    information: document.querySelector('.information'),
   };
 };

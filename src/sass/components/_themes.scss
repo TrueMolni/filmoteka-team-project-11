@@ -6,7 +6,7 @@
 
 .header__themes-icon {
   position: absolute;
-  // display: flex;
+
   justify-content: flex-end;
   padding: 0;
 
@@ -64,4 +64,8 @@
 .footer__light-theme {
   color: var(--footer-text-color);
   background-color: var(--footer-background);
+}
+
+.footer__btn-dark {
+  color: var(--white-text-color);
 }

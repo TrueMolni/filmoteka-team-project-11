@@ -7,5 +7,7 @@ export const getRefs = () => {
         galleryItems:    document.querySelector('.film__list'),
         myLibrary:       document.querySelector('#my-library'),
         divModal:        document.querySelector('.modal'),
+        toTopBtn:        document.querySelector('.btn-to-top'),
+        iconSun:         document.querySelector('.header__themes-icon'),
     };  
 };

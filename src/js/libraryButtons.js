@@ -38,7 +38,7 @@ function createMarkup(watchedArr) {
             vote_average,
             year,
         }) => {
-            return `<li class="gallery__item data-modal-open">
+            return `<li class="gallery__item data-id="${id}" data-modal-open">
             <img src="${srcImgBase}${poster_path}" alt="${id}-${original_title}" class="img" data-modal-open/>
             <div class="item__text">
                 <h2 class="item__capt">${title}</h2>

@@ -8,11 +8,11 @@ import { getTrending } from './js/api';
 //import { getById } from './js/getById';
 import { getById } from './js/api';
 import { createMarkup } from './js/markupListMovies.js';
+import './js/localStorage';
 import './js/themes';
 import './js/searchByKeyWord';
-import './js/modalOurTeam.js';
+import './js/modalOurTeam';
 import './js/modal';
-import './js/localStoragе';
 
 import Spinner from './js/loader';
 import './js/scroll';

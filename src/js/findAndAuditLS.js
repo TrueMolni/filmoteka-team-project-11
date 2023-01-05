@@ -1,7 +1,7 @@
 import {getById} from './api';
 import {parseOneFilm} from './parseApiToLS';
 
-export const getFilmData = function (targetCardId, base) {
+export function getFilmData (targetCardId, base) {
     try {
         localStorageArray = JSON.parse(localStorage.getItem(base));
     } catch (err) {
@@ -27,6 +27,9 @@ function findCardItem (targetCardId) {
 }
 
 function findAndAdd (currentArray, targetCardId) {
+    if (currentArray === null) {
+        currentArray = [];
+    }
     let cardItem;
     currentArray.forEach(item => {
         if (item.id === Number(targetCardId)) {

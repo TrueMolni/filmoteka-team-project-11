@@ -1,4 +1,6 @@
-const modalWindow = document.querySelector('.modal');
+import { IMG_URL } from './api';
+import { getRefs } from './refs';
+const { divModal } = getRefs();
 export function renderMovieModal({
   genres,
   original_title = 'Unknown',
@@ -17,12 +19,10 @@ export function renderMovieModal({
     genresList = 'No information';
   }
 
-  let imgPath = '';
-  if (poster_path) {
-    imgPath = `https://image.tmdb.org/t/p/w500${poster_path}`;
-  } else {
-    imgPath = '/uc4RAVW1T3T29h6OQdr7zu4Blui.jpg'; // потрібно якусь дефолтну картинку в images або якійсь напис придумати
-  }
+  let poster = '';
+  poster_path === null
+    ? (poster = '/uc4RAVW1T3T29h6OQdr7zu4Blui.jpg')
+    : (poster = `${poster_path}`);
 
   let descr = '';
   if (overview) {
@@ -32,7 +32,7 @@ export function renderMovieModal({
   }
 
   const markup = `<div class="information">
-  <img src="${imgPath}" alt="Movie poster"/>
+  <img src="${IMG_URL}${poster}" alt="Movie poster"/>
     <div class="movie-details">
       <h3 class="movie-details__heading">${title}</h3>
       <ul class="movie-details__list-info">
@@ -60,10 +60,10 @@ export function renderMovieModal({
       <p class="about__text">About</p>
       <p class="about__descr">${overview}</p>
       <div class="button-wrapper">
-      <button class="btton modal-film__btn-watched" data-id="${id}" type="button">Add to watched</button>
-      <button class="btton modal-film__btn-queque" data-id="${id}" type="button">Add to queue</button>
+      <button class="btton modal-btn modal-film__btn-watched" data-id="${id}" type="button">Add to watched</button>
+      <button class="btton modal-btn modal-film__btn-queque" data-id="${id}" type="button">Add to queue</button>
     </div>
   </div>
 </div>`;
-  modalWindow.firstElementChild.insertAdjacentHTML('afterend', markup);
+  divModal.firstElementChild.insertAdjacentHTML('afterend', markup);
 }

@@ -6,33 +6,7 @@ const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 let currentPage = 1;
 const moviesList = document.querySelector('.film__list');
 
-// Видаляю,бо додаю даний виклик в пагінацію-метод loadFirstPag():
 
-// getTrending(currentPage).then(res => {
-//   const headerCheck = document.querySelector('.side-nav__link');
-//   if (headerCheck.classList.contains('home')) {
-//     moviesList.insertAdjacentHTML('beforeend', createMarkup(res));
-//   }
-// });
-async function getGenres() {
-  try {
-    const resGenres = await axios.get(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`
-    );
-    return await resGenres.data;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-async function renderGernes() {
-  if (localStorage.getItem('genres') === null) {
-    await getGenres().then(({ genres }) => {
-      localStorage.setItem('genres', JSON.stringify(genres));
-     return renderGernes});
-  }
-
-}
 
 function getGenreById(genreId, genresArray) {
   const genres = genresArray.find(option => option.id === genreId);
@@ -40,15 +14,16 @@ function getGenreById(genreId, genresArray) {
 }
 
 function createMarkup(res) {
+  console.log(res);
   if (res.results.length >= 1) {
     const markup = res.results
       .map(
         ({ id, title, poster_path, genre_ids, release_date, vote_average }) => {
-
-          const genresList = JSON.parse(localStorage.getItem('genres'));
-           let genres = genre_ids.map(item => {
-          return getGenreById(item, genresList);
-          })
+          //
+          // const genresList = JSON.parse(localStorage.getItem('genres'));
+          // let genres = genre_ids.map(item => {
+          // return getGenreById(item, genresList);
+          // })
 
           let genresMarkup = '';
           if (genres.length === 0) {

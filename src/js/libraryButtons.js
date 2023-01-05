@@ -60,5 +60,3 @@ function createMarkup(watchedArr) {
     </div>`
     return markup
 }
-
-                

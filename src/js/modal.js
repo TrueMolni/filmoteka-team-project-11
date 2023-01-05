@@ -1,9 +1,7 @@
 import { renderMovieModal } from './renderMovieModal.js';
 import { getById } from './api';
-
-const filmGallery = document.querySelector('.film__list');
-const backdrop = document.querySelector('.backdrop');
-const closeButton = document.querySelector('.close-button');
+import { getRefs } from './refs';
+const { filmGallery, backdrop, closeButton } = getRefs();
 
 filmGallery.addEventListener('click', onModalWindowOpen);
 closeButton.addEventListener('click', onModalWindowClose);
@@ -11,7 +9,6 @@ backdrop.addEventListener('click', onBackdropClick);
 
 function onModalWindowOpen(e) {
   const value = Object(e.target);
-  // console.log('click');
   e.preventDefault();
   if (!e.target.closest('li')) {
     return;
@@ -48,6 +45,3 @@ function onEscClose(event) {
     document.removeEventListener('keydown', onEscClose);
   }
 }
-
-// onModalWindowOpen();
-// console.dir(document);

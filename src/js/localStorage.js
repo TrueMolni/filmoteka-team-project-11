@@ -8,17 +8,14 @@ const refs = getRefs();
 refs.divModal.addEventListener('click', function (e) {
   if (e.target.classList.contains('modal-film__btn-watched')) {
     const modalWatchedBtn = e.target;
-    console.log(modalWatchedBtn.dataset.id)
+    // console.log(modalWatchedBtn.dataset.id)
     modalWatchedBtn.addEventListener('click', onAddToLS('watched', modalWatchedBtn, modalWatchedBtn.dataset.id));
   } else if ((e.target.classList.contains('modal-film__btn-queque')) ) {
     const modalQueueBtn = e.target;
-    console.log(modalQueueBtn.dataset.id)
+    // console.log(modalQueueBtn.dataset.id)
     modalQueueBtn.addEventListener('click', onAddToLS('queue', modalQueueBtn, modalQueueBtn.dataset.id));
   }
 });
-
-localStorage.setItem('watched', '[]');
-localStorage.setItem('queue', '[]');
 
 export function onAddToLS(key, targetBtn, id) {
   const filmId = Number(id); 
@@ -41,8 +38,7 @@ export function onAddToLS(key, targetBtn, id) {
     changeBtnStyle(targetBtn, key);
   }
 }
-
-const removeMovieFromLocalStorage = async (localStorageKey, newFilm) => {
+async function removeMovieFromLocalStorage (localStorageKey, newFilm) {
   await newFilm.then(newFilm => {
     try {
       const currentDataArray = loadDataFromLS(localStorageKey);
@@ -59,7 +55,7 @@ const removeMovieFromLocalStorage = async (localStorageKey, newFilm) => {
   });
 };
 
-const addMovieToLocalStorage = async (localStorageKey, newFilm) => {
+async function addMovieToLocalStorage (localStorageKey, newFilm) {
   await newFilm.then(newFilm => {
     try {
       const currentDataArray = loadDataFromLS(localStorageKey);

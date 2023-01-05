@@ -27,6 +27,9 @@
     line-height: normal;
     text-align: center;
     font-size: 0;
+    @media screen and (max-width: 768px) {
+            margin: 40px 0 40px;
+        }
 }
 
 .tui-pagination .tui-page-btn {
@@ -49,14 +52,15 @@
 .tui-pagination .tui-page-btn:hover {
     background-color:var(--footer-background);
     border-radius: 5px;
+    box-shadow: var(--shadow-page-pagination);
 }
 
 .tui-pagination .tui-prev:hover {
-    background-color: var(--white-text-color);
+    background-color: var(--footer-background);
     border-radius: 5px;
 }
 .tui-pagination .tui-next:hover {
-    background-color: var(--white-text-color);
+    background-color: var(--footer-background);
     border-radius: 5px;
 }
 
@@ -115,7 +119,7 @@
 .tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip{
- @media screen and (max-width: 450px) {
+ @media screen and (max-width: 768px) {
 display: none;}
  }
 
@@ -130,7 +134,6 @@ display: none;}
         padding: 12px;
         background-color: var(--footer-background);
         border-radius: 5px;
-        box-shadow: var(--shadow-page-pagination);
    
 }
 
@@ -216,6 +219,7 @@ display: none;}
 .tui-pagination .tui-is-disabled:hover {
     background: var(--white-text-color);
     cursor: default;
+    box-shadow: none;
 }
 
 // .tui-pagination .tui-is-disabled .tui-ico-prev {

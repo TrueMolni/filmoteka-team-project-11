@@ -10,5 +10,6 @@ export const getRefs = () => {
     filmGallery: document.querySelector('.film__list'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
+    pagination: document.getElementById('tui-pagination-container'),
   };
 };

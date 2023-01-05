@@ -57,6 +57,8 @@
 
   @include mq(tablet) {
     max-width: 100%;
+  }
+}
 
 @keyframes heartbeat {
   0% {
@@ -64,6 +66,5 @@
   }
   50% {
     scale: 1.1;
-
   }
 }

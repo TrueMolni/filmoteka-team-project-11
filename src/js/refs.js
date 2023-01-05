@@ -9,7 +9,6 @@ export const getRefs = () => {
     divModal: document.querySelector('.modal'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
-    pagination: document.getElementById('tui-pagination-container'),
     openModalOurTeam: document.querySelector("[data-open-modal_our-team]"),
     closeModalOurTeam: document.querySelector("[data-close-modal_our-team]"),
     modalOurTeam: document.querySelector("[data-modal_our-team]"),   

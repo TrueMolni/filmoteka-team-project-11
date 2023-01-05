@@ -19,5 +19,6 @@ export const getRefs = () => {
     modalTeam: document.querySelector('.modal_our-team'),
     socialIconsDisabled: document.querySelectorAll('.social-icons__disabled'),
     information: document.querySelector('.information'),
+    pagination:document.getElementById('tui-pagination-container')
   };
 };

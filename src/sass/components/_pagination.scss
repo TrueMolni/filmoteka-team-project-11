@@ -27,6 +27,9 @@
     line-height: normal;
     text-align: center;
     font-size: 0;
+    @media screen and (max-width: 768px) {
+            margin: 40px 0 40px;
+        }
 }
 
 .tui-pagination .tui-page-btn {
@@ -46,18 +49,28 @@
     line-height: 16px;
 }
 
-.tui-pagination .tui-page-btn:hover {
+.tui-pagination .tui-page-btn:hover,
+ .tui-pagination .tui-page-btn:focus{
     background-color:var(--footer-background);
     border-radius: 5px;
+    box-shadow: var(--shadow-page-pagination);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
-.tui-pagination .tui-prev:hover {
-    background-color: var(--white-text-color);
+.tui-pagination .tui-prev:hover,
+ .tui-pagination .tui-prev:focus{
+    background-color: var(--footer-background);
     border-radius: 5px;
+    transition-duration: var(--transition-duration);
+        transition-timing-function: var(--transition-timing-function);
 }
-.tui-pagination .tui-next:hover {
-    background-color: var(--white-text-color);
+.tui-pagination .tui-next:hover,
+ .tui-pagination .tui-next:focus{
+    background-color: var(--footer-background);
     border-radius: 5px;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 .tui-pagination .tui-is-selected,
@@ -68,8 +81,11 @@
     cursor: default;
 }
 
-.tui-pagination .tui-is-selected:hover {
+.tui-pagination .tui-is-selected:hover,
+.tui-pagination .tui-is-selected:focus{
     background-color: var(--accent-color);
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
@@ -115,7 +131,7 @@
 .tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip{
- @media screen and (max-width: 450px) {
+ @media screen and (max-width: 768px) {
 display: none;}
  }
 
@@ -130,7 +146,6 @@ display: none;}
         padding: 12px;
         background-color: var(--footer-background);
         border-radius: 5px;
-        box-shadow: var(--shadow-page-pagination);
    
 }
 
@@ -213,9 +228,13 @@ display: none;}
     background-position: 0px -24px
 }
 
-.tui-pagination .tui-is-disabled:hover {
+.tui-pagination .tui-is-disabled:hover,
+ .tui-pagination .tui-is-disabled:focus{
     background: var(--white-text-color);
     cursor: default;
+    box-shadow: none;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
 }
 
 // .tui-pagination .tui-is-disabled .tui-ico-prev {

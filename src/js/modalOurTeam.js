@@ -1,5 +1,3 @@
-
-
 const refs = {
   openModalBtn: document.querySelector("[data-open-modal_our-team]"),
   closeModalBtn: document.querySelector("[data-close-modal_our-team]"),
@@ -41,8 +39,6 @@ function addEventListeners() {
   refs.closeModalBtn.addEventListener('click', closeModal);
 }
 
-
-
 function chengeDarkThemModalOurTeam({socialIcons, listEmployeItem, titleModalOurTeam, iconClose,modalOurTeam, socialIconsDisabled }) {
   socialIcons.forEach(element => element.classList.add('social-icons__themDark'));
   socialIconsDisabled.forEach(element => element.classList.add('social-icons__disabled--themDark'));
@@ -54,8 +50,6 @@ function chengeDarkThemModalOurTeam({socialIcons, listEmployeItem, titleModalOur
 };
 
 
-
-  
 
 function chengeLightThemModalOurTeam({ socialIcons, listEmployeItem, titleModalOurTeam, iconClose, modalOurTeam, socialIconsDisabled }) {
   socialIcons.forEach(element => element.classList.remove('social-icons__themDark'));

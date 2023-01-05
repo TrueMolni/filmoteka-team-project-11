@@ -12,7 +12,7 @@ function getGenreById(genreId, genresArray) {
 }
 
 function createMarkup(res) {
-  console.log(res);
+  // console.log(res);
   if (res.results.length >= 1) {
     const markup = res.results
       .map(

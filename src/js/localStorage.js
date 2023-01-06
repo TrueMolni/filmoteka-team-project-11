@@ -5,6 +5,7 @@ import { changeBtnStyle } from './changeModalBtn';
 
 const refs = getRefs();
 
+
 refs.divModal.addEventListener('click', function (e) {
   if (e.target.classList.contains('modal-film__btn-watched')) {
     const modalWatchedBtn = e.target;
@@ -23,6 +24,7 @@ export function onAddToLS(key, targetBtn, id) {
   const filmId = Number(id); 
   const currentDataArray = loadDataFromLS(key);
   if (currentDataArray.find(film => film.id === Number(filmId)) !== undefined) {
+    let isAdded = false;
     removeMovieFromLocalStorage(
       key,
       getFilmData(filmId, key)

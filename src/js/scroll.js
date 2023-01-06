@@ -1,4 +1,5 @@
-const toTopBtn = document.querySelector('.btn-to-top');
+import { getRefs } from './refs';
+const refs = getRefs();
 
 // Повісити на закриття модалки
 // const scrolled = window.pageYOffset;
@@ -10,18 +11,21 @@ const toTopBtn = document.querySelector('.btn-to-top');
 // При відкритті модалки
 // toTopBtn.classList.remove('btn-to-top--visible');
 
+
 window.addEventListener('scroll', onScroll);
-toTopBtn.addEventListener('click', onToTopBtn);
+refs.toTopBtn.addEventListener('click', onToTopBtn);
 
 function onScroll() {
+    setThemOnButtonToTop()
     const scrolled = window.pageYOffset;
     const coords = window.innerHeight / 3;
     if (scrolled > coords) {
-        toTopBtn.classList.add('btn-to-top--visible');
+        refs.toTopBtn.classList.add('btn-to-top--visible');
     };
-    if (scrolled <= coords && toTopBtn) {
-        toTopBtn.classList.remove('btn-to-top--visible');
+    if (scrolled <= coords && refs.toTopBtn) {
+        refs.toTopBtn.classList.remove('btn-to-top--visible');
     };
+    
 };
 
 function onToTopBtn() {
@@ -30,6 +34,14 @@ function onToTopBtn() {
             top,
             behavior: "smooth"
         });
+    };
+};
+
+function setThemOnButtonToTop() {
+    if (refs.iconSun.classList.contains('hidden-icon')) {
+        refs.toTopBtn.classList.remove('btn-to-top--dark');
+    } else  {
+        refs.toTopBtn.classList.add('btn-to-top--dark');
     };
 };
 

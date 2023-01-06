@@ -27,5 +27,9 @@ export const getRefs = () => {
     socialIconsDisabled: document.querySelectorAll('.social-icons__disabled'),
     information: document.querySelector('.information'),
 
+    pagination:document.getElementById('tui-pagination-container'),
+    information: document.querySelector('.information'),
+    toTopBtn: document.querySelector('.btn-to-top'),
+    iconSun: document.querySelector('.header__themes-icon'),
   };
 };

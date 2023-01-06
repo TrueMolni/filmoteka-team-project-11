@@ -16,9 +16,9 @@ export const getRefs = () => {
     footerText: document.querySelector('.footer__descr'),
     footerBtn: document.querySelector('.footer__btn'),
 
-    openModalOurTeam: document.querySelector("[data-open-modal_our-team]"),
-    closeModalOurTeam: document.querySelector("[data-close-modal_our-team]"),
-    modalOurTeam: document.querySelector("[data-modal_our-team]"),   
+    openModalOurTeam: document.querySelector('[data-open-modal_our-team]'),
+    closeModalOurTeam: document.querySelector('[data-close-modal_our-team]'),
+    modalOurTeam: document.querySelector('[data-modal_our-team]'),
     socialIcons: document.querySelectorAll('.social-icons'),
     listEmployeItem: document.querySelectorAll('.list-employees-item'),
     titleModalOurTeam: document.querySelector('.title_modal_our-team'),
@@ -27,9 +27,12 @@ export const getRefs = () => {
     socialIconsDisabled: document.querySelectorAll('.social-icons__disabled'),
     information: document.querySelector('.information'),
 
-    pagination:document.getElementById('tui-pagination-container'),
-    information: document.querySelector('.information'),
+    pagination: document.getElementById('tui-pagination-container'),
     toTopBtn: document.querySelector('.btn-to-top'),
     iconSun: document.querySelector('.header__themes-icon'),
+
+    modalVideo: document.querySelector('[data-modal-video]'),
+    closeModalBtn: document.querySelector('[data-modal-video-close]'),
+    divTrailer: document.querySelector('.trailer'),
   };
 };

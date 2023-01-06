@@ -1,6 +1,6 @@
 import { IMG_URL } from './api';
 import { getRefs } from './refs';
-import {checkAdd} from './localStorage';
+import { checkAdd } from './localStorage';
 
 const { divModal } = getRefs();
 export function renderMovieModal({
@@ -34,7 +34,7 @@ export function renderMovieModal({
   }
 
   const markup = `<div class="information">
-  <img src="${IMG_URL}${poster}" alt="Movie poster"/>
+  <img src="${IMG_URL}${poster}" alt="Movie poster" id="${id}"/>
     <div class="movie-details">
       <h3 class="movie-details__heading">${title}</h3>
       <ul class="movie-details__list-info">
@@ -56,7 +56,7 @@ export function renderMovieModal({
         </li>
         <li class="list-info__item">
           <p class="testimonial">Genre</p>
-          <p class="mark">${genresList}</p>
+          <p class="mark">${genresList.join(', ')}</p>
         </li>
       </ul>
       <p class="about__text">About</p>
@@ -69,7 +69,7 @@ export function renderMovieModal({
 </div>`;
   divModal.firstElementChild.insertAdjacentHTML('afterend', markup);
   const modalWatchedBtn = document.querySelector('.modal-film__btn-watched');
-  checkAdd('watched',  modalWatchedBtn.dataset.id, modalWatchedBtn);
+  checkAdd('watched', modalWatchedBtn.dataset.id, modalWatchedBtn);
   const modalQueueBtn = document.querySelector('.modal-film__btn-queque');
   checkAdd('queue', modalQueueBtn.dataset.id, modalQueueBtn);
 }

@@ -1,0 +1,56 @@
+.backdrop-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 100%;
+  height: 220px;
+  transition-property: opacity, visibility;
+  transition-duration: var(--transition-duration);
+  transition-timing-function: var(--transition-timing-function);
+}
+
+@media screen and (min-width: 320px) {
+  .backdrop-video {
+    width: 320px;
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .backdrop-video {
+    width: 560px;
+    height: 315px;
+  }
+}
+
+.backdrop-video.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.trailer {
+  width: 100%;
+  height: 100%;
+  background: var(--main-background-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.close-video-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  fill: var(--white-text-color);
+  background: var(--accent-color);
+  border-style: none;
+  line-height: 0;
+
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow);
+  }
+}

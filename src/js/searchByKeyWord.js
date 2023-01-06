@@ -6,6 +6,13 @@ const userFilms = new ApiServise();
 import Pagination from 'tui-pagination';
 import { options } from './pagination';
 import { cleanContainer } from './pagination';
+import Spinner from './loader';
+
+const loader = new Spinner();
+
+// console.log('hello world');
+// console.log('this is loader', loader.hide);
+
 const refs = {
   inputEl: document.querySelector('.search-field'),
   searchBtn: document.querySelector('.search-btn'),
@@ -17,6 +24,8 @@ const refs = {
 };
 const pagination = new Pagination(refs.pagination, options);
 const onSearchBtnClick = event => {
+ 
+  // loader.show();
   //   console.log('click');
   event.preventDefault();
   userFilms.userSearch = event.target.elements.query.value.trim();
@@ -74,3 +83,5 @@ async function loadFirstPageOnSearch() {
   }, 1000);
   pagination.reset(response.total_results);
 }
+
+

@@ -1,5 +1,8 @@
 import {loadDataFromLS} from './localStorageData';
 import {getRefs} from './refs';
+import Spinner from "./loader";
+
+const loader = new Spinner();
 
 const refs = getRefs();
 if (refs.myLibrary.classList.contains('my-library')) {
@@ -10,11 +13,27 @@ if (refs.myLibrary.classList.contains('my-library')) {
 
 function onWatchedButtonClick (e) {
     e.preventDefault;
+    loader.show();
+    const spinner = () => {
+        setTimeout(() => {
+        loader.hide()
+        }, 250);
+        
+    };
+    spinner()
     showPageMyLibrary('watched');
 }
 
 function onQueueButtonClick (e) {
     e.preventDefault;
+    loader.show();
+    const spinner = () => {
+        setTimeout(() => {
+        loader.hide()
+        }, 250);
+        
+    };
+    spinner()
     showPageMyLibrary('queue');
 }
 

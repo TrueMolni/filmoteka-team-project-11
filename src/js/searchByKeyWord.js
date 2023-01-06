@@ -65,12 +65,14 @@ async function loadFirstPageOnSearch() {
     cleanContainer();
     clearWarning();
     if (response.results.length === 0) {
-      
+      setTimeout(() => {
+        loader.hide();
+      }, 500);
       refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
       refs.searchResField.textContent = '';
       refs.moviesList.innerHTML = noResults();
       refs.pagination.style.display = 'none';
-      loader.hide()
+      // loader.hide()
       return;
     }
     Notiflix.Notify.success(

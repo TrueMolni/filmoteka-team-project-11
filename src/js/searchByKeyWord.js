@@ -70,6 +70,7 @@ async function loadFirstPageOnSearch() {
       refs.searchResField.textContent = '';
       refs.moviesList.innerHTML = noResults();
       refs.pagination.style.display = 'none';
+      loader.hide()
       return;
     }
     Notiflix.Notify.success(

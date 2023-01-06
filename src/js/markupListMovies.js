@@ -1,10 +1,9 @@
-import { getTrending } from "./api.js";
+import { getTrending } from './api.js';
 //import { getTrending } from './getTrending.js';
 
 const srcImgBase = 'https://image.tmdb.org/t/p/w500';
 let currentPage = 1;
 const moviesList = document.querySelector('.film__list');
-
 
 function getGenreById(genreId, genresArray) {
   const genres = genresArray.find(option => option.id === genreId);
@@ -19,12 +18,10 @@ function createMarkup(res) {
         ({ id, title, poster_path, genre_ids, release_date, vote_average }) => {
           //
 
-
           // const genresList = JSON.parse(localStorage.getItem('genres'));
           // let genres = genre_ids.map(item => {
           // return getGenreById(item, genresList);
           // })
-
 
           // let genresMarkup = '';
           // if (genres.length === 0) {
@@ -40,7 +37,6 @@ function createMarkup(res) {
           poster_path === null
             ? (poster = '/uc4RAVW1T3T29h6OQdr7zu4Blui.jpg')
             : (poster = poster_path);
-
 
           // check  a date
 

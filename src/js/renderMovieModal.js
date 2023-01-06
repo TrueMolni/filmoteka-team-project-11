@@ -1,5 +1,7 @@
 import { IMG_URL } from './api';
 import { getRefs } from './refs';
+import {checkAdd} from './localStorage';
+
 const { divModal } = getRefs();
 export function renderMovieModal({
   genres,
@@ -66,4 +68,8 @@ export function renderMovieModal({
   </div>
 </div>`;
   divModal.firstElementChild.insertAdjacentHTML('afterend', markup);
+  const modalWatchedBtn = document.querySelector('.modal-film__btn-watched');
+  checkAdd('watched',  modalWatchedBtn.dataset.id, modalWatchedBtn);
+  const modalQueueBtn = document.querySelector('.modal-film__btn-queque');
+  checkAdd('queue', modalQueueBtn.dataset.id, modalQueueBtn);
 }

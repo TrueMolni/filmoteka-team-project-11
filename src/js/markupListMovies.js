@@ -46,16 +46,12 @@ const genresConverting = (genresIds) => {
 
 
 function createMarkup(res) {
-  
+
   if (res.results.length >= 1) {
     const markup = res.results
       .map(
         ({ id, title, poster_path, genre_ids, release_date, vote_average }) => {
-          //
-
-
-
-
+          
           // check for poster
           let poster = '';
           poster_path === null

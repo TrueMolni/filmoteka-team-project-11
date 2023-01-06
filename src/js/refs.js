@@ -9,6 +9,13 @@ export const getRefs = () => {
     divModal: document.querySelector('.modal'),
     backdrop: document.querySelector('.backdrop'),
     closeButton: document.querySelector('.close-button'),
+
+    iconSun: document.querySelector('[data-action="light"]'),
+    iconMoon: document.querySelector('[data-action="dark"]'),
+    footerContainer: document.querySelector('.footer'),
+    footerText: document.querySelector('.footer__descr'),
+    footerBtn: document.querySelector('.footer__btn'),
+
     openModalOurTeam: document.querySelector("[data-open-modal_our-team]"),
     closeModalOurTeam: document.querySelector("[data-close-modal_our-team]"),
     modalOurTeam: document.querySelector("[data-modal_our-team]"),   
@@ -19,6 +26,7 @@ export const getRefs = () => {
     modalTeam: document.querySelector('.modal_our-team'),
     socialIconsDisabled: document.querySelectorAll('.social-icons__disabled'),
     information: document.querySelector('.information'),
+
     pagination:document.getElementById('tui-pagination-container'),
     information: document.querySelector('.information'),
     toTopBtn: document.querySelector('.btn-to-top'),

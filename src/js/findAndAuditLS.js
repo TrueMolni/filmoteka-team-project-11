@@ -1,20 +1,22 @@
 import {getById} from './api';
 import {parseOneFilm} from './parseApiToLS';
 
+let cardItem = null;
+
 export function getFilmData (targetCardId, base) {
     try {
-        localStorageArray = JSON.parse(localStorage.getItem(base));
+        const localStorageArray = JSON.parse(localStorage.getItem(base));
+        cardItem = findAndAdd(localStorageArray, targetCardId);
+        if (cardItem) {
+            isAdded = true;
+            return cardItem;
+        }
+        return findCardItem(targetCardId).then(cardItem => {
+            return cardItem;
+        });
     } catch (err) {
         console.error('Get LocslStorage error: ', err);
     }
-        cardItem = findAndAdd(localStorageArray, targetCardId);
-    if (cardItem) {
-        isAdded = true;
-        return cardItem;
-    }
-    return findCardItem(targetCardId).then(cardItem => {
-        return cardItem;
-    });
 }
 
 function findCardItem (targetCardId) {

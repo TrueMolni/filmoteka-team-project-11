@@ -13,6 +13,7 @@ import './js/themes';
 import './js/searchByKeyWord';
 import './js/modalOurTeam';
 import './js/modal';
+import './js/trailer';
 
 import Spinner from './js/loader';
 import './js/scroll';

@@ -8,11 +8,11 @@ const refs = getRefs();
 refs.divModal.addEventListener('click', function (e) {
   if (e.target.classList.contains('modal-film__btn-watched')) {
     const modalWatchedBtn = e.target;
-    console.log(modalWatchedBtn.dataset.id)
+    // console.log(modalWatchedBtn.dataset.id)
     modalWatchedBtn.addEventListener('click', onAddToLS('watched', modalWatchedBtn, modalWatchedBtn.dataset.id));
   } else if ((e.target.classList.contains('modal-film__btn-queque')) ) {
     const modalQueueBtn = e.target;
-    console.log(modalQueueBtn.dataset.id)
+    // console.log(modalQueueBtn.dataset.id)
     modalQueueBtn.addEventListener('click', onAddToLS('queue', modalQueueBtn, modalQueueBtn.dataset.id));
   }
 });

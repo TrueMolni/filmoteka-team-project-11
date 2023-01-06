@@ -3,7 +3,7 @@
 import ApiServise, { IMG_URL } from './api';
 import { createMarkup } from './markupListMovies';
 const userFilms = new ApiServise();
-import Pagination from 'tui-pagination';
+import Pagination from './tui-pagination';
 import { options } from './pagination';
 import { cleanContainer } from './pagination';
 import Spinner from './loader';
@@ -73,7 +73,7 @@ async function loadFirstPageOnSearch() {
       refs.warningField.textContent = `Sorry, there no results found. Try searching for something else!`;
       refs.searchResField.textContent = '';
       refs.moviesList.innerHTML = noResults();
-      refs.pagination.innerHTML = ' ';
+      refs.pagination.style.display = "none";
       return;
     }
     // refs.searchResField.textContent = `We found ${response.total_results} results on request "${userFilms.userSearch}"!`;

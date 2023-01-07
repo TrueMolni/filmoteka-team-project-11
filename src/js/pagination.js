@@ -5,6 +5,7 @@ import { getRefs } from './refs';
 
 const refs = getRefs();
 const apiServise = new ApiServise;
+const tui = document.querySelector('a') 
 
 export const options = {
   page:1,
@@ -47,7 +48,6 @@ async function loadMoreFilms(event) {
  pagination.setTotalItems(response.total_results);
 
  refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response))
-
 };
 
 export function cleanContainer(){
@@ -55,7 +55,7 @@ export function cleanContainer(){
 };
 
 
-async function loadFirstPage() {
+async function loadFirstPage(e) {
 
   const response = await apiServise.getTrendingFilm();
 
@@ -66,8 +66,8 @@ async function loadFirstPage() {
   if (headerCheck.classList.contains('home')) {
     refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response))
   }
+
 };
 
+
 loadFirstPage()
-
-

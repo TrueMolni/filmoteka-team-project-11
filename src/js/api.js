@@ -14,12 +14,9 @@ export default class ApiServise {
   async getTrendingFilm() {
     try {
       const response = await axios.get(`${API_URL}&page=${this.page}`);
-      if (!response) {
-        throw new Error();
-      }
       return response.data;
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
   async onSearchFilm() {
@@ -27,12 +24,9 @@ export default class ApiServise {
       const response = await axios.get(
         `${SEARCH_URL}&query=${this.userSearch}&page=${this.page}`
       );
-      if (!response) {
-        throw new Error();
-      }
       return response.data;
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
   async onSearchById() {
@@ -40,33 +34,30 @@ export default class ApiServise {
       const response = await axios.get(
         `${BASE_URL}/movie/${this.id}?api_key=${API_KEY}`
       );
-      if (!response) {
-        throw new Error();
-      }
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      throw new Error(error);
+    }
   }
   async onSearchTrailerById() {
     try {
       const response = await axios.get(
         `${BASE_URL}/movie/${this.id}/videos?api_key=${API_KEY}`
       );
-      if (!response) {
-        throw new Error();
-      }
       return response.data;
-    } catch (error) {}
+    } catch (error) {
+      throw new Error(error);
+    }
   }
   async onGetGenresId() {
     try {
       const genresId = await axios.get(
         `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`
       );
-      if (!genresId) {
-        throw new Error();
-      }
       return genresId.data;
-    } catch (error) {}
+    } catch (error) {
+      throw new Error(error);
+    }
   }
   incrementPage() {
     this.page += 1;
@@ -100,12 +91,9 @@ export async function getTrending(currentPage) {
     const resTrending = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${currentPage}`
     );
-    if (!resTrending) {
-      throw new Error();
-    }
     return await resTrending.data;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 }
 

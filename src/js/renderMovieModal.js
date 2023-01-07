@@ -16,7 +16,7 @@ export function renderMovieModal({
 }) {
   let genresList = '';
   if (genres.length) {
-    genresList = genres.map(genre => genre.name);
+    genresList = genres.map(genre => genre.name.split(' '));
   } else {
     genresList = 'No information';
   }

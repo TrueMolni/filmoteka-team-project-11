@@ -1,9 +1,10 @@
 import { getRefs } from './refs';
 import { getFilmData } from './findAndAuditLS';
 import { loadDataFromLS, setDataToLS } from './localStorageData';
-import { changeBtnStyle } from './changeModalBtn';
 
 const refs = getRefs();
+let isAdded = false;
+
 
 refs.divModal.addEventListener('click', function (e) {
   if (e.target.classList.contains('modal-film__btn-watched')) {
@@ -80,4 +81,12 @@ export function checkAdd(localStorageKey, targetCardId, targetBtn) {
     isAdded = true;
   } else isAdded = false;
   changeBtnStyle(targetBtn, localStorageKey);
+}
+
+export function changeBtnStyle (targetBtn, keyLS) {
+  // console.log(isAdded)
+  targetBtn.style.color = isAdded ? '#fff' : '';
+  targetBtn.style.backgroundColor = isAdded ? '#ff6b08' : '';
+  targetBtn.textContent = isAdded ? `remove from ${keyLS}` : `add to ${keyLS}`
+  isAdded = false;
 }

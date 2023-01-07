@@ -62,15 +62,16 @@ function createMarkup(res) {
 
           let voteAverage = vote_average.toFixed(1);
 
-          let genres = new Array(genresConverting(genre_ids));
+          let genres = genresConverting(genre_ids);
+          let genre = genres.split(', ');
 
           let genresMarkup = '';
-          if (genres.length === 0) {
+          if (genre.length === 0) {
             genresMarkup = 'No genres';
-          } else if (genres.length < 3) {
-            genresMarkup = genres.join(',&nbsp;');
+          } else if (genre.length < 3) {
+            genresMarkup = genre.join(',');
           } else {
-            genresMarkup = `${genres[0]}, ${genres[1]}, Others`;
+            genresMarkup = `${genre[0]}, ${genre[1]}, Others`;
           }
 
           return `<li class="gallery__item film-card" data-modal-open data-id="${id}">
@@ -78,9 +79,8 @@ function createMarkup(res) {
             <div class="item__text">
               <h2 class="item__capt">${title}</h2>
               <div class="item__wrap">
-                <p class="item__genre">${genresMarkup}|</p>
+                <p class="item__genre">${genresMarkup}| ${relDate}</p>
                 <p class="item__rating">${voteAverage}</p>
-                <p class="item__genre">${relDate}</p>
               </div>
             </div>
           </li>`;

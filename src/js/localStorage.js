@@ -1,9 +1,9 @@
 import { getRefs } from './refs';
 import { getFilmData } from './findAndAuditLS';
 import { loadDataFromLS, setDataToLS } from './localStorageData';
-import { changeBtnStyle } from './changeModalBtn';
 
 const refs = getRefs();
+let isAdded = false;
 
 
 refs.divModal.addEventListener('click', function (e) {
@@ -24,7 +24,6 @@ export function onAddToLS(key, targetBtn, id) {
   const filmId = Number(id); 
   const currentDataArray = loadDataFromLS(key);
   if (currentDataArray.find(film => film.id === Number(filmId)) !== undefined) {
-    let isAdded = false;
     removeMovieFromLocalStorage(
       key,
       getFilmData(filmId, key)
@@ -82,4 +81,12 @@ export function checkAdd(localStorageKey, targetCardId, targetBtn) {
     isAdded = true;
   } else isAdded = false;
   changeBtnStyle(targetBtn, localStorageKey);
+}
+
+export function changeBtnStyle (targetBtn, keyLS) {
+  // console.log(isAdded)
+  targetBtn.style.color = isAdded ? '#fff' : '';
+  targetBtn.style.backgroundColor = isAdded ? '#ff6b08' : '';
+  targetBtn.textContent = isAdded ? `remove from ${keyLS}` : `add to ${keyLS}`
+  isAdded = false;
 }

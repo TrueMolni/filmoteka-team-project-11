@@ -80,12 +80,6 @@ function createMarkup(res) {
               <div class="item__wrap">
                 <p class="item__genre">${genresMarkup} | ${relDate}</p>
                 <p class="item__rating">${voteAverage}</p>
-                
-
-                
-             
-
-
               </div>
             </div>
           </li>`;

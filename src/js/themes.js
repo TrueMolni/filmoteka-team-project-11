@@ -21,7 +21,6 @@ refs.iconSun.addEventListener('click', onLightTheme);
 setDefaultTheme();
 
 function onDarkTheme() {
-  refs.toTopBtn.classList.add('btn-to-top--dark');
   localStorage.setItem('themes', JSON.stringify('DarkTheme'));
   setDarkThemModalOurTeam(refs);
 
@@ -38,7 +37,6 @@ function onDarkTheme() {
 }
 
 function onLightTheme() {
-  refs.toTopBtn.classList.remove('btn-to-top--dark');
   localStorage.setItem('themes', JSON.stringify('LightTheme'));
   setLightThemModalOurTeam(refs);
 

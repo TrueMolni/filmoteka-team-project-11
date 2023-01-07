@@ -28,8 +28,10 @@ export const getRefs = () => {
     information: document.querySelector('.information'),
 
     pagination: document.getElementById('tui-pagination-container'),
+    paginationBtn:document.querySelector('.tui-page-btn'),
     toTopBtn: document.querySelector('.btn-to-top'),
     iconSun: document.querySelector('.header__themes-icon'),
+  
 
     modalVideo: document.querySelector('[data-modal-video]'),
     closeModalBtn: document.querySelector('[data-modal-video-close]'),

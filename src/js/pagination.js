@@ -44,15 +44,18 @@ async function loadMoreFilms(event) {
   const response = await apiServise.getTrendingFilm();
 
   pagination.setTotalItems(response.total_results);
-
   refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response));
 }
 
 export function cleanContainer() {
+
   refs.galleryItems.innerHTML = '';
 }
 
-async function loadFirstPage() {
+
+async function loadFirstPage(e) {
+
+
   const response = await apiServise.getTrendingFilm();
 
   pagination.reset(response.total_results);
@@ -65,3 +68,4 @@ async function loadFirstPage() {
 }
 
 loadFirstPage();
+

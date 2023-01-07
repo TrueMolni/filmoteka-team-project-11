@@ -27,7 +27,7 @@
     line-height: normal;
     text-align: center;
     font-size: 0;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 767px) {
             margin: 40px 0 40px;
         }
 }
@@ -79,13 +79,25 @@
     background: var(--accent-color);
     border-radius: 5px;
     cursor: default;
-}
+        animation: bounce .3s  alternate;
+    }
+    
+  
+    @keyframes bounce {
+        to {
+            transform: scale(0.9);
+        }
+    }
+
+
+
 
 .tui-pagination .tui-is-selected:hover,
 .tui-pagination .tui-is-selected:focus{
     background-color: var(--accent-color);
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
+
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
@@ -131,7 +143,7 @@
 .tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip{
- @media screen and (max-width: 768px) {
+ @media screen and (max-width: 767px) {
 display: none;}
  }
 
@@ -275,6 +287,8 @@ background-color: var(--white-text-color);
     color: #000;
     border: 0;
     outline: none;}
+
+
 
 .tui-page-inputs .tui-page-current {
     color: var(--accent-color);

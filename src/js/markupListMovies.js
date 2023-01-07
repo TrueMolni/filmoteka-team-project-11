@@ -71,7 +71,7 @@ function createMarkup(res) {
           } else if (genre.length < 3) {
             genresMarkup = genre.join(',');
           } else {
-            genresMarkup = `${genre[0]}, ${genre[1]}, Others`;
+            genresMarkup = `${genre[0]}, ${genre[1]}, ...other`;
           }
 
           return `<li class="gallery__item film-card" data-modal-open data-id="${id}">

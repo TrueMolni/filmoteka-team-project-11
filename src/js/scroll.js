@@ -1,4 +1,6 @@
 import { getRefs } from './refs';
+import throttle from 'lodash.throttle';
+
 const refs = getRefs();
 
 // Повісити на закриття модалки
@@ -12,7 +14,7 @@ const refs = getRefs();
 // toTopBtn.classList.remove('btn-to-top--visible');
 
 
-window.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', throttle(onScroll, 500));
 refs.toTopBtn.addEventListener('click', onToTopBtn);
 
 function onScroll() {

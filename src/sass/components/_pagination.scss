@@ -79,29 +79,16 @@
     background: var(--accent-color);
     border-radius: 5px;
     cursor: default;
-    -webkit-animation: bounce .3s  alternate;
-        -moz-animation: bounce .3s  alternate;
         animation: bounce .3s  alternate;
     }
     
-    @-webkit-keyframes bounce {
-        to {
-            -webkit-transform: scale(1);
-        }
-    }
-    
-    @-moz-keyframes bounce {
-        to {
-            -moz-transform: scale(1);
-        }
-    }
-    
+  
     @keyframes bounce {
         to {
-            transform: scale(1.1);
+            transform: scale(0.9);
         }
     }
-    // animation:heartbeat 1s linear alternate;
+
 
 
 

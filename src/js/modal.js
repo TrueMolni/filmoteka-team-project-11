@@ -1,16 +1,15 @@
 import { renderMovieModal } from './renderMovieModal.js';
 import { getById } from './api';
 import { getRefs } from './refs';
+import { scrollCloseModal, scrollOpenModal } from './scroll';
 const { galleryItems, backdrop, closeButton } = getRefs();
-
-const refs = getRefs();
 
 galleryItems.addEventListener('click', onModalWindowOpen);
 closeButton.addEventListener('click', onModalWindowClose);
 backdrop.addEventListener('click', onBackdropClick);
 
 function onModalWindowOpen(e) {
-  refs.toTopBtn.classList.remove('btn-to-top--visible');
+  scrollOpenModal()
   if (!e.target.closest('li')) {
     return;
   } else if (e.target.closest('li')) {
@@ -31,13 +30,9 @@ function onModalWindowOpen(e) {
 }
 
 function onModalWindowClose() {
+  scrollCloseModal()
   backdrop.classList.add('is-hidden');
   document.body.style.overflow = 'visible';
-  const scrolled = window.pageYOffset;
-  const coords = window.innerHeight / 3;
-  if (scrolled > coords) {
-    refs.toTopBtn.classList.add('btn-to-top--visible');
-  };
 }
 function onBackdropClick(event) {
   if (event.currentTarget === event.target) {

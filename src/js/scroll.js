@@ -1,4 +1,6 @@
 import { getRefs } from './refs';
+import throttle from 'lodash.throttle';
+
 const refs = getRefs();
 
 // Повісити на закриття модалки
@@ -12,11 +14,10 @@ const refs = getRefs();
 // toTopBtn.classList.remove('btn-to-top--visible');
 
 
-window.addEventListener('scroll', onScroll);
+window.addEventListener('scroll', throttle(onScroll, 500));
 refs.toTopBtn.addEventListener('click', onToTopBtn);
 
 function onScroll() {
-    setThemOnButtonToTop()
     const scrolled = window.pageYOffset;
     const coords = window.innerHeight / 3;
     if (scrolled > coords) {
@@ -34,14 +35,6 @@ function onToTopBtn() {
             top,
             behavior: "smooth"
         });
-    };
-};
-
-function setThemOnButtonToTop() {
-    if (refs.iconSun.classList.contains('hidden-icon')) {
-        refs.toTopBtn.classList.remove('btn-to-top--dark');
-    } else  {
-        refs.toTopBtn.classList.add('btn-to-top--dark');
     };
 };
 

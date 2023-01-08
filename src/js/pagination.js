@@ -2,9 +2,11 @@ import Pagination from './tui-pagination';
 import ApiServise from '../js/api';
 import { createMarkup } from './markupListMovies';
 import { getRefs } from './refs';
+import Spinner from './loader';
 
 const refs = getRefs();
 const apiServise = new ApiServise();
+const spinner = new Spinner();
 
 export const options = {
   page: 1,
@@ -37,6 +39,7 @@ const pagination = new Pagination(refs.pagination, options);
 pagination.on('afterMove', loadMoreFilms);
 
 async function loadMoreFilms(event) {
+  spinner.show();
   cleanContainer();
 
   apiServise.page = event.page;
@@ -45,16 +48,15 @@ async function loadMoreFilms(event) {
 
   pagination.setTotalItems(response.total_results);
   refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response));
+  spinner.hide();
 }
 
 export function cleanContainer() {
-
   refs.galleryItems.innerHTML = '';
 }
 
-
 async function loadFirstPage(e) {
-
+  spinner.show();
 
   const response = await apiServise.getTrendingFilm();
 
@@ -65,7 +67,8 @@ async function loadFirstPage(e) {
   if (headerCheck.classList.contains('home')) {
     refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(response));
   }
+
+  spinner.hide();
 }
 
 loadFirstPage();
-

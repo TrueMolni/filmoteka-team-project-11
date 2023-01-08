@@ -71,16 +71,8 @@ function createMarkup(res) {
           } else if (genre.length < 3) {
             genresMarkup = genre.join(',');
           } else {
-            genresMarkup = `${genre[0]}, ${genre[1]},${genre[2]}, other`;
+            genresMarkup = `${genre[0]}, ${genre[1]}, Others`;
           }
-
-
-          // let titleMarkup = '';
-          // let titleStr = String(title);
-          // let titleArr= titleStr.slice(' ');
-          // if (titleArr.length < 34) {
-          //   titleMarkup = titleStr;
-          // } else { titleMarkup = titleArr.slice(0,33) + '...'; }
 
           return `<li class="gallery__item film-card" data-modal-open data-id="${id}">
             <img src="${srcImgBase}${poster}" alt="${title}" class="img" id="${id}" />

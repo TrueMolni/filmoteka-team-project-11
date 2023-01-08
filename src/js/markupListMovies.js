@@ -71,7 +71,7 @@ function createMarkup(res) {
           } else if (genre.length < 3) {
             genresMarkup = genre.join(',');
           } else {
-            genresMarkup = `${genre[0]}, ${genre[1]}, ...other`;
+            genresMarkup = `${genre[0]}, ${genre[1]},${genre[2]}, other`;
           }
 
 

@@ -19,7 +19,7 @@
 }
 
 .gallery__item {
-
+  position: relative;
   margin-top: 20px;
 
   @media screen and (min-width: 768px) {
@@ -72,7 +72,7 @@
 }
 
 .item__wrap {
-  position: relative; //!
+   //!
 min-width: 280px;
   display: flex;
   justify-content: space-between; //!
@@ -94,6 +94,7 @@ min-width: 280px;
 }
 
 .item__rating {
+  bottom: 100%;
   position: absolute; //! Відносне позиціонування
   margin-left: 8px;
   font-style: normal;
@@ -129,15 +130,15 @@ min-width: 280px;
     height: 30px;
 
     right: 0px; //! Встановити -5px, щоб змістилось праворуч
-    bottom: 408px; //! Додати + 5px, щоб змістилось вгору
+    bottom:calc(100% - 30px); //! Додати + 5px, щоб змістилось вгору
     font-size: 16px;
   }
   @include mq(tablet) {
     width: 70px;
     height: 35px;
-
+    
     right: 0px;
-    bottom: 460px;
+    bottom:calc(100% - 35px);
     font-size: 18px;
   }
   @include mq(desktop) {
@@ -145,7 +146,7 @@ min-width: 280px;
     height: 40px;
 
     right: 0px;
-    bottom: 590px;
+    bottom:calc(100% - 40px);
     font-size: 20px;
   }
 }

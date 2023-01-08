@@ -21,6 +21,7 @@
 .gallery__item {
   position: relative;
   margin-top: 20px;
+  transition: all 0.2s;
 
   @media screen and (min-width: 768px) {
     flex-basis: calc(100% / 2 - 32px);
@@ -54,6 +55,13 @@
 .item__text {
   margin-top: 8px;
 }
+
+.gallery__item:hover,
+.gallery__item:focus
+{
+  @media screen and (min-width: 1200px) {
+    transform: scale(1.03);
+  }}
 
 .item__capt {
 
@@ -136,7 +144,7 @@ min-width: 280px;
   @include mq(tablet) {
     width: 70px;
     height: 35px;
-    
+
     right: 0px;
     bottom:calc(100% - 35px);
     font-size: 18px;

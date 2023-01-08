@@ -71,21 +71,21 @@ function createMarkup(res) {
           } else if (genre.length < 3) {
             genresMarkup = genre.join(',');
           } else {
-            genresMarkup = `${genre[0]}, ${genre[1]}, ...other`;
+            genresMarkup = `${genre[0]}, ${genre[1]},${genre[2]}, other`;
           }
 
 
-          let titleMarkup = '';
-          let titleStr = String(title);
-          let titleArr= titleStr.slice(' ');
-          if (titleArr.length < 34) {
-            titleMarkup = titleStr;
-          } else { titleMarkup = titleArr.slice(0,33) + '...'; }
+          // let titleMarkup = '';
+          // let titleStr = String(title);
+          // let titleArr= titleStr.slice(' ');
+          // if (titleArr.length < 34) {
+          //   titleMarkup = titleStr;
+          // } else { titleMarkup = titleArr.slice(0,33) + '...'; }
 
           return `<li class="gallery__item film-card" data-modal-open data-id="${id}">
             <img src="${srcImgBase}${poster}" alt="${title}" class="img" id="${id}" />
             <div class="item__text">
-              <h2 class="item__capt">${titleMarkup}</h2>
+              <h2 class="item__capt">${title}</h2>
               <div class="item__wrap">
                 <p class="item__genre">${genresMarkup} | ${relDate}</p>
                 <p class="item__rating">${voteAverage}</p>

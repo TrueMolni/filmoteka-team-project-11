@@ -1,13 +1,13 @@
 import { userFilms } from './api';
 import { getRefs } from './refs';
 
-const refs = getRefs();
+const { backdrop, modalVideo, divTrailer, closeModalBtn } = getRefs();
 
 function updateModalContainer(clear = '') {
-  refs.divTrailer.innerHTML = clear;
+  return (divTrailer.innerHTML = clear);
 }
 function toggleModal() {
-  refs.modalVideo.classList.toggle('is-hidden');
+  modalVideo.classList.toggle('is-hidden');
 }
 
 function handelClickToPoster(e) {
@@ -39,5 +39,5 @@ function closeModalVideoWindow() {
   updateModalContainer();
 }
 
-refs.backdrop.addEventListener('click', handelClickToPoster);
-refs.closeModalBtn.addEventListener('click', closeModalVideoWindow);
+backdrop.addEventListener('click', handelClickToPoster);
+closeModalBtn.addEventListener('click', closeModalVideoWindow);

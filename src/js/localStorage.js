@@ -1,6 +1,16 @@
 import { getRefs } from './refs';
 import { getFilmData } from './findAndAuditLS';
 import { loadDataFromLS, setDataToLS } from './localStorageData';
+import Notiflix from 'notiflix';
+
+Notiflix.Notify.init({
+  position: 'right-top',
+  distance: '5px',
+  
+  clickToClose: true,
+  timeout: 2500,
+});
+
 
 const refs = getRefs();
 let isAdded = false;
@@ -51,6 +61,9 @@ async function removeMovieFromLocalStorage (localStorageKey, newFilm) {
           if (film.id !== newFilm.id) newDataArray.push(film);
         });
         setDataToLS(localStorageKey, newDataArray);
+      Notiflix.Notify.info(
+      `You have ${newFilm.title} succesfully removed from "${localStorageKey}"!`
+      );
       }
     } catch (err) {
       console.error('Get LocslStorage error: ', err);
@@ -68,6 +81,9 @@ async function addMovieToLocalStorage (localStorageKey, newFilm) {
       } else {
         currentDataArray.push(newDataArray);
         setDataToLS(localStorageKey, currentDataArray);
+        Notiflix.Notify.success(
+          `You have ${newFilm.title} succesfully added to "${localStorageKey}"!`
+          );
       }
     } catch (err) {
       console.error('Get LocslStorage error: ', err);

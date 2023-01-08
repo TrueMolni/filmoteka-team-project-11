@@ -1,13 +1,13 @@
 import { userFilms } from './api';
 import { getRefs } from './refs';
 
-const refs = getRefs();
+const { backdrop, modalVideo, divTrailer, closeModalBtn } = getRefs();
 
 function updateModalContainer(clear = '') {
-  refs.divTrailer.innerHTML = clear;
+  return (divTrailer.innerHTML = clear);
 }
 function toggleModal() {
-  refs.modalVideo.classList.toggle('is-hidden');
+  modalVideo.classList.toggle('is-hidden');
 }
 
 function handelClickToPoster(e) {
@@ -38,7 +38,7 @@ function markupVideo(videoArray) {
   return `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 }
 
-function toShowVideo() {
+function toShowVideo(videoArray) {
   const markup = markupVideo(videoArray);
   updateModalContainer(markup);
 }
@@ -48,5 +48,5 @@ function closeModalVideoWindow() {
   updateModalContainer();
 }
 
-refs.backdrop.addEventListener('click', handelClickToPoster);
-refs.closeModalBtn.addEventListener('click', closeModalVideoWindow);
+backdrop.addEventListener('click', handelClickToPoster);
+closeModalBtn.addEventListener('click', closeModalVideoWindow);

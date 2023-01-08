@@ -16,8 +16,7 @@ export default class ApiServise {
       const response = await axios.get(`${API_URL}&page=${this.page}`);
       return response.data;
     } catch (error) {
-    //   console.log(error);
-      return;
+      throw new Error(error);
     }
   }
   async onSearchFilm() {
@@ -27,8 +26,7 @@ export default class ApiServise {
       );
       return response.data;
     } catch (error) {
-      console.log(error);
-      return;
+      throw new Error(error);
     }
   }
   async onSearchById() {
@@ -38,8 +36,7 @@ export default class ApiServise {
       );
       return response.data;
     } catch (error) {
-    //   console.log(error);
-      return;
+      throw new Error(error);
     }
   }
   async onSearchTrailerById() {
@@ -49,8 +46,7 @@ export default class ApiServise {
       );
       return response.data;
     } catch (error) {
-    //   console.log(error);
-      return;
+      throw new Error(error);
     }
   }
   async onGetGenresId() {
@@ -60,8 +56,7 @@ export default class ApiServise {
       );
       return genresId.data;
     } catch (error) {
-    //   console.log(error);
-      return;
+      throw new Error(error);
     }
   }
   incrementPage() {
@@ -90,7 +85,6 @@ export default class ApiServise {
 const userFilms = new ApiServise();
 export { userFilms };
 
-
 //for markUpListMovies and pagination
 export async function getTrending(currentPage) {
   try {
@@ -99,10 +93,9 @@ export async function getTrending(currentPage) {
     );
     return await resTrending.data;
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 }
-
 
 export function getById(movieId) {
   return axios

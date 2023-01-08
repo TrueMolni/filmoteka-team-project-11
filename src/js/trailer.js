@@ -1,13 +1,13 @@
 import { userFilms } from './api';
 import { getRefs } from './refs';
 
-const refs = getRefs();
+const { backdrop, modalVideo, divTrailer, closeModalBtn } = getRefs();
 
 function updateModalContainer(clear = '') {
-  refs.divTrailer.innerHTML = clear;
+  return (divTrailer.innerHTML = clear);
 }
 function toggleModal() {
-  refs.modalVideo.classList.toggle('is-hidden');
+  modalVideo.classList.toggle('is-hidden');
 }
 
 function handelClickToPoster(e) {
@@ -20,11 +20,12 @@ function handelClickToPoster(e) {
 
   fetchVideo(valueId)
     .then(data => {
-      return (videoArray = data.results[0]);
+      const trailerKey = data.results[0].key;
+      const instance =  `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${trailerKey}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      updateModalContainer(instance);
     })
-    .then(toShowVideo)
     .catch(error => {
-      console.error();
+      console.error(error);
     });
 }
 
@@ -33,20 +34,10 @@ function fetchVideo(valueId) {
   return userFilms.onSearchTrailerById(valueId);
 }
 
-function markupVideo(videoArray) {
-  const key = videoArray.key;
-  return `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-}
-
-function toShowVideo() {
-  const markup = markupVideo(videoArray);
-  updateModalContainer(markup);
-}
-
 function closeModalVideoWindow() {
   toggleModal();
   updateModalContainer();
 }
 
-refs.backdrop.addEventListener('click', handelClickToPoster);
-refs.closeModalBtn.addEventListener('click', closeModalVideoWindow);
+backdrop.addEventListener('click', handelClickToPoster);
+closeModalBtn.addEventListener('click', closeModalVideoWindow);

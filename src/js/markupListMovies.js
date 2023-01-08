@@ -87,7 +87,7 @@ function createMarkup(res) {
             <div class="item__text">
               <h2 class="item__capt">${titleMarkup}</h2>
               <div class="item__wrap">
-                <p class="item__genre">${genresMarkup}| ${relDate}</p>
+                <p class="item__genre">${genresMarkup} | ${relDate}</p>
                 <p class="item__rating">${voteAverage}</p>
               </div>
             </div>

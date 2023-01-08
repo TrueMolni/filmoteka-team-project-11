@@ -1,6 +1,7 @@
 import { renderMovieModal } from './renderMovieModal.js';
 import { getById } from './api';
 import { getRefs } from './refs';
+import { scrollCloseModal, scrollOpenModal } from './scroll';
 const { galleryItems, backdrop, closeButton } = getRefs();
 
 galleryItems.addEventListener('click', onModalWindowOpen);
@@ -8,6 +9,7 @@ closeButton.addEventListener('click', onModalWindowClose);
 backdrop.addEventListener('click', onBackdropClick);
 
 function onModalWindowOpen(e) {
+  scrollOpenModal()
   if (!e.target.closest('li')) {
     return;
   } else if (e.target.closest('li')) {
@@ -28,6 +30,7 @@ function onModalWindowOpen(e) {
 }
 
 function onModalWindowClose() {
+  scrollCloseModal()
   backdrop.classList.add('is-hidden');
   document.body.style.overflow = 'visible';
 }

@@ -97,6 +97,7 @@
   }
 }
 .information {
+  position: relative;
   background-color: var(--white-text-color);
 
   img {
@@ -125,6 +126,27 @@
     }
   }
 }
+
+.information::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  top: 13px;
+  left: 4px;
+  background-image: url(../images/icon-youtube.svg);
+
+  @media screen and (min-width: 768px) {
+    top: 3px;
+    left: 10px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 3px;
+    left: 31px;
+  }
+}
+
 .movie-details {
   width: 240px;
 

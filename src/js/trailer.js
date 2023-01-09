@@ -21,7 +21,7 @@ function handelClickToPoster(e) {
   fetchVideo(valueId)
     .then(data => {
       const trailerKey = data.results[0].key;
-      const instance =  `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${trailerKey}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      const instance = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${trailerKey}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       updateModalContainer(instance);
     })
     .catch(error => {
@@ -34,10 +34,15 @@ function fetchVideo(valueId) {
   return userFilms.onSearchTrailerById(valueId);
 }
 
-function closeModalVideoWindow() {
-  toggleModal();
-  updateModalContainer();
+function closeModalVideoWindow(e) {
+  if (e.code === 'Escape' || e.currentTarget === e.target) {
+    modalVideo.classList.add('is-hidden');
+    updateModalContainer();
+  }
+  return;
 }
 
 backdrop.addEventListener('click', handelClickToPoster);
 closeModalBtn.addEventListener('click', closeModalVideoWindow);
+document.addEventListener('keydown', closeModalVideoWindow);
+backdrop.addEventListener('click', closeModalVideoWindow);

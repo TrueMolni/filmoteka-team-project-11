@@ -1,7 +1,8 @@
 import { userFilms } from './api';
 import { getRefs } from './refs';
 
-const { backdrop, modalVideo, divTrailer, closeModalBtn } = getRefs();
+const { backdrop, modalVideo, divTrailer, closeModalBtn, closeButton } =
+  getRefs();
 
 function updateModalContainer(clear = '') {
   return (divTrailer.innerHTML = clear);
@@ -35,7 +36,11 @@ function fetchVideo(valueId) {
 }
 
 function closeModalVideoWindow(e) {
-  if (e.code === 'Escape' || e.currentTarget === e.target) {
+  if (
+    e.code === 'Escape' ||
+    e.currentTarget === e.target ||
+    e.currentTarget.classList.contains('close-button')
+  ) {
     modalVideo.classList.add('is-hidden');
     updateModalContainer();
   }
@@ -46,3 +51,4 @@ backdrop.addEventListener('click', handelClickToPoster);
 closeModalBtn.addEventListener('click', closeModalVideoWindow);
 document.addEventListener('keydown', closeModalVideoWindow);
 backdrop.addEventListener('click', closeModalVideoWindow);
+closeButton.addEventListener('click', closeModalVideoWindow);

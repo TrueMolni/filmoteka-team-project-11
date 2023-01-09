@@ -1,6 +1,15 @@
 import { loadDataFromLS } from './localStorageData';
 import { getRefs } from './refs';
 import Spinner from './loader';
+import Notiflix from 'notiflix';
+
+Notiflix.Notify.init({
+  position: 'right-top',
+  distance: '5px',
+  
+  clickToClose: true,
+  timeout: 2500,
+});
 
 const loader = new Spinner();
 
@@ -38,6 +47,16 @@ function onQueueButtonClick(e) {
 function showPageMyLibrary(keyName) {
   const watchedArr = loadDataFromLS(keyName);
   refs.galleryItems.insertAdjacentHTML('beforeend', createMarkup(watchedArr));
+  if (watchedArr.length === 0) {
+    Notiflix.Notify.info(
+      `Oops...You haven't added a movie yet. Please make your choice.`
+    );
+    return
+  }
+  Notiflix.Notify.success(
+    `You have ${watchedArr.length} films in your library "${keyName}"!`
+  );
+  
 }
 
 function createMarkup(watchedArr) {

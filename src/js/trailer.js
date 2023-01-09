@@ -28,6 +28,7 @@ function handelClickToPoster(e) {
     .catch(error => {
       console.error(error);
     });
+    document.addEventListener('keydown', onEscCloseVideo)
 }
 
 function fetchVideo(valueId) {
@@ -36,9 +37,7 @@ function fetchVideo(valueId) {
 }
 
 function closeModalVideoWindow(e) {
-  if (
-    e.code === 'Escape' ||
-    e.currentTarget === e.target ||
+  if (e.currentTarget === e.target ||
     e.currentTarget.classList.contains('close-button')
   ) {
     modalVideo.classList.add('is-hidden');
@@ -47,8 +46,16 @@ function closeModalVideoWindow(e) {
   return;
 }
 
+function onEscCloseVideo (event) {
+  if (event.code === 'Escape') {
+    modalVideo.classList.add('is-hidden');
+    updateModalContainer();
+    document.removeEventListener('keydown', onEscCloseVideo);
+  }
+}
+
 backdrop.addEventListener('click', handelClickToPoster);
 closeModalBtn.addEventListener('click', closeModalVideoWindow);
-document.addEventListener('keydown', closeModalVideoWindow);
+
 backdrop.addEventListener('click', closeModalVideoWindow);
 closeButton.addEventListener('click', closeModalVideoWindow);

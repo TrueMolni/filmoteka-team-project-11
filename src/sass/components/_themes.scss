@@ -49,8 +49,10 @@
 }
 
 .dark-theme {
-  color: var(--white-text-color);
-  background-color: var(--dark-background-color);
+  background-image: url(../images/bg-night.jpg);
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 .light-theme {
   color: var(--black-text-color);

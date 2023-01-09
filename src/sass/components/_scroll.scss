@@ -12,7 +12,7 @@
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     cursor: pointer;
     border: 1px solid #ff6b08;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
     color: #ff6b08;
     transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
     @media screen and (min-width: 1200px) {
@@ -31,7 +31,7 @@
 
 .btn-to-top:hover {
     background-color: #ff6b08;
-    color: #ffffff;
+    color: #fcfcfc;
 }
 
 .btn-to-top--visible {
@@ -60,7 +60,7 @@
 }
 
 .btn-to-top--dark {
-    border: 1px solid #ff6b08;
-    background-color: #2a2a2a;
-    color: #ff6b08;
+    border: 1px solid #9b9b9b;
+    background-color: #333333;
+    color: #838383;
 }

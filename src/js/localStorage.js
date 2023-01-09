@@ -62,7 +62,7 @@ async function removeMovieFromLocalStorage (localStorageKey, newFilm) {
         });
         setDataToLS(localStorageKey, newDataArray);
       Notiflix.Notify.info(
-      `You have ${newFilm.title} succesfully removed from "${localStorageKey}"!`
+      `${newFilm.title} succesfully removed from "${localStorageKey}"!`
       );
       }
     } catch (err) {
@@ -82,7 +82,7 @@ async function addMovieToLocalStorage (localStorageKey, newFilm) {
         currentDataArray.push(newDataArray);
         setDataToLS(localStorageKey, currentDataArray);
         Notiflix.Notify.success(
-          `You have ${newFilm.title} succesfully added to "${localStorageKey}"!`
+          `${newFilm.title} succesfully added to "${localStorageKey}"!`
           );
       }
     } catch (err) {
